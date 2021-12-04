@@ -1,0 +1,26 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+nav{
+    background-color: antiquewhite;
+    margin: 0px;
+    padding: 0px;
+}
+
+.nav-container{
+
+}
+
+.nav-logo{
+    width: 5.2rem;
+    height: 5rem;
+    float: left;
+}
+
+.nav-logo2{
+    width: 5.2rem;
+    height: 5rem;
+    float: right;
+}
