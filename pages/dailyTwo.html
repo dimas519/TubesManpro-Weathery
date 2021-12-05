@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Daily</title>
+    <link rel="stylesheet" href="../style/dwm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+</head>
+<body>
+    <!-- Header start -->
+    <header>
+        <!-- Navbar -->
+        <div class="w3-container" style="margin: 0px; padding: 0px;">
+            <nav>
+                <div class="logo">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="img-logo"><img src="../assets/Logo.png" alt="Logo" ></a>
+                        </li>
+                        <li class="nav-item nama-merk">
+                            <a href="#" class="nav-link merk">Weathery</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-right-sd2">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">Weather</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Prediction</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Header ends -->
+    <!-- Searchbar -->
+    <section class="main">
+        <div class="container">
+            <form action="#" class="search-d2" method="get">
+                <input type="text" placeholder="  Search City" name="search-city">
+                <button type="button" class="bkn-btn"><i class="fa fa-map-marker"></i></button>
+                <input type="date" name="date-picker-daily" class="dp">
+                <button type="submit" class="btn-search-d2">SEARCH</button>
+            </form>
+        </div>
+        <!-- Searchbar Ends-->
+    </section>
+    <section class="weather">
+        <div class="w3-row">
+            <div class="w3-container w3-half w3-center">
+                <div class="w3-card-2 w3-hover-shadow" style="flex: 1; width: 70%; margin-left: auto; margin-right: auto; border-radius: 10px; border-color: #5C6460; border-width: 2px; border-style: solid; background-color: antiquewhite;">
+                    <div class="w3-container header-morning-afternoon">
+                        Morning
+                    </div>
+                    <div class="w3-container temp">
+                        <div class="w3-row">
+                            <div class="w3-half w3-center">
+                                <p class="temp">15.5 &#8451</p>
+                            </div>
+                            <div class="w3-half w3-center">
+                                <img src="../assets/Logo.png" alt="Weather Condition" style="width: 7rem;">
+                                <p class="temp-desc"><span class="lo-temp">8.8 &#8451</span> / <span class="hi-temp">15.5 &#8451</span></p>
+                            </div>
+                            <div class="w3-container">
+                                <p class="desc">Cloud : <span class="cloud-num">2</span></p>
+                            </div>
+                            <div class="w3-container">
+                                <p class="desc">Rainfall : <span class="rf-num">0.8</span> mm</p>
+                            </div>
+                            <div class="w3-container">
+                                <p class="desc">Evaporation : <span class="eva-num">1.6</span> mm</p>
+                            </div>
+                            <div class="w3-container">
+                                <p class="desc">Sunshine : <span class="ss-num">2.6</span> hour</p>
+                            </div>
+                            <div class="w3-container">
+                                <p class="desc">WindSpeed : <span class="wsnum">13</span> km/h</p>
+                            </div>
+                            <div class="w3-container">
+                                <p class="desc">WindDirection : <span class="wd-num">West</span></p>
+                            </div>
+                            <div class="w3-container">
+                                <p class="desc">Humidity : <span class="hum-num">75</span> %</p>
+                            </div>
+                            <div class="w3-container" style="padding-bottom: 2rem;">
+                                <p class="desc">Pressure : <span class="pres-num">1017.4</span> hpa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-container w3-half w3-center">
+                <div class="w3-card-2 w3-hover-shadow" style="flex: 1; width: 70%; margin-left: auto; margin-right: auto; border-radius: 10px; border-color: #5C6460; border-width: 2px; border-style: solid; background-color: antiquewhite;">
+                    <div class="w3-container header-morning-afternoon">
+                        Afternoon
+                    </div>
+                    <div class="w3-container temp">
+                        <div class="w3-row">
+                            <div class="w3-half w3-center">
+                                <p class="temp">15.5 &#8451</p>
+                            </div>
+                            <div class="w3-half w3-center">
+                                <img src="../assets/Logo.png" alt="Weather Condition" style="width: 7rem;">
+                                <p class="temp-desc"><span class="lo-temp">8.8 &#8451</span> / <span class="hi-temp">15.5 &#8451</span></p>
+                            </div>
+                            <div class="w3-container">
+                                <p class="desc">Cloud : <span class="cloud-num">2</span></p>
+                            </div>
+                            <div class="w3-container">
+                                <p class="desc">Rainfall : <span class="rf-num">0.8</span> mm</p>
+                            </div>
+                            <div class="w3-container">
+                                <p class="desc">Evaporation : <span class="eva-num">1.6</span> mm</p>
+                            </div>
+                            <div class="w3-container">
+                                <p class="desc">Sunshine : <span class="ss-num">2.6</span> hour</p>
+                            </div>
+                            <div class="w3-container">
+                                <p class="desc">WindSpeed : <span class="wsnum">13</span> km/h</p>
+                            </div>
+                            <div class="w3-container">
+                                <p class="desc">WindDirection : <span class="wd-num">West</span></p>
+                            </div>
+                            <div class="w3-container">
+                                <p class="desc">Humidity : <span class="hum-num">75</span> %</p>
+                            </div>
+                            <div class="w3-container" style="padding-bottom: 2rem;">
+                                <p class="desc">Pressure : <span class="pres-num">1017.4</span> hpa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+    <footer>
+
+    </footer>
+</body>
+</html>
