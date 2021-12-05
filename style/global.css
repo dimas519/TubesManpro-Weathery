@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prata&family=Rokkitt:wght@300;400;500;600;700;800&display=swap');
+
 *{
     margin: 0px;
     padding: 0px;
+    font-family: rokkitt;
+    color: #555154;
 }
 
 body {
@@ -18,6 +23,17 @@ body {
 .navbar-logo {
     width: 5.2rem;
     height: 5rem;
+    vertical-align: middle;
+}
+
+.navbar span {
+    font-weight: 500; 
+    font-size: 40px; 
+    vertical-align: middle;
+}
+
+.navbar ul {
+    float: right;
 }
 
 .navbar ul li {
@@ -27,4 +43,17 @@ body {
 
 .navbar ul li a {
     text-decoration: none;
+    font-size: 20px;
 }
+
+.navbar ul li a:hover, .active {
+    color: #5C6460;
+}
+
+.active{
+    border-bottom: 2px solid #5C6460;
+}
+
+
+
+
