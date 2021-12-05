@@ -149,8 +149,13 @@ section {
     transform: translateX(-15%);
 }
 
-.nav-item{
+.nav-list-second .active{
+    border-bottom: 2px solid #5C6460;
+}
+
+.nav-item a{
     margin-left: 2.75rem;
+    text-decoration: none;
 }
 
 /* Date picker */
