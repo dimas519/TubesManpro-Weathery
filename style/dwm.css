@@ -1,4 +1,4 @@
-*{
+/**{
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
@@ -22,9 +22,6 @@ nav{
     align-items: center;
     justify-content: center;
     background-color: #F4EBE1;
-    /* box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.5);
-    width: 124%;
-    transform: translateX(-11%); */
 }
 
 .nav-list{
@@ -46,7 +43,6 @@ nav{
 }
 
 .logo{
-    /* float: left; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -81,9 +77,10 @@ nav{
 .nav-right{
     margin-right: 5rem; 
     margin-left: auto;
-}
+}*/
 
-/* Main */
+
+/* MAIN */
 section {
     padding-top: 2rem;
     overflow: hidden;
@@ -150,6 +147,10 @@ section {
     justify-content: space-around;
     margin-left: 0;
     transform: translateX(-15%);
+}
+
+.nav-item{
+    margin-left: 2.75rem;
 }
 
 /* Date picker */
