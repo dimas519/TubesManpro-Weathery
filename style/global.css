@@ -3,24 +3,28 @@
     padding: 0px;
 }
 
-nav{
+body {
+    background-color: #F0D1A2;
+}
+
+/*HEADER*/
+.navbar {
     background-color: antiquewhite;
     margin: 0px;
     padding: 0px;
+    display: flex;
 }
 
-.nav-container{
-
-}
-
-.nav-logo{
+.navbar-logo {
     width: 5.2rem;
     height: 5rem;
-    float: left;
 }
 
-.nav-logo2{
-    width: 5.2rem;
-    height: 5rem;
-    float: right;
+.navbar ul li {
+    display: inline;
+    padding: 30px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
 }
