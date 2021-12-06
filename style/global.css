@@ -1,26 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Prata&family=Rokkitt:wght@300;400;500;600;700;800&display=swap');
+
 *{
     margin: 0px;
     padding: 0px;
+    font-family: rokkitt;
+    color: #555154;
 }
 
-nav{
+body {
+    background-color: #F0D1A2;
+}
+
+/*HEADER*/
+.navbar {
     background-color: antiquewhite;
-    margin: 0px;
-    padding: 0px;
+    display: flex;
 }
 
-.nav-container{
-
-}
-
-.nav-logo{
+.navbar-logo {
     width: 5.2rem;
     height: 5rem;
-    float: left;
+    vertical-align: middle;
 }
 
-.nav-logo2{
-    width: 5.2rem;
-    height: 5rem;
+.navbar span {
+    font-weight: 500; 
+    font-size: 40px; 
+    vertical-align: middle;
+}
+
+.navbar ul {
     float: right;
 }
+
+.navbar ul li {
+    display: inline;
+    padding: 30px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.navbar ul li a:hover, .navbar .active {
+    color: #5C6460;
+}
+
+.navbar .active{
+    border-bottom: 2px solid #5C6460;
+}
+
