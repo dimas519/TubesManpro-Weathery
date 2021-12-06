@@ -17,6 +17,7 @@
 
 .dropbutton{
     width: 30rem;
+    border-radius: 20px;
     border-color: #5C6460;
     border-style: solid;
     border-width: 2px;
@@ -24,6 +25,18 @@
     color: #F4EBE1;
     font-weight: 500px;
     font-size: 18px;
+}
+
+.dropbutton span{
+    float: left;
+    margin-left: 1.5rem;
+    color: white
+}
+
+.dropbutton i{
+    float: right;
+    margin-right: 1.5rem;
+    vertical-align: middle;
 }
 
 #drop_content{
@@ -60,6 +73,11 @@
     padding-left: 32%;
     padding-right: 32%;
     padding-top: 2%;
+}
+
+.selected_param input{
+    float: right;
+    height: 5%;
 }
 
 .border_box{
