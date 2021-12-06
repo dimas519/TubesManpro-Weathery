@@ -29,9 +29,9 @@
     </nav>
 
     <div class="weather-box w3-card-4 w3-round-xxlarge" style="">
-        <div style="padding: 20px; flex: 1;">
-            <h3>MONTHLY AVERAGE</h3>
-            <h1>15.5˚C</h1>
+        <div style="padding: 30px; margin-left: 30px;">
+            <h2 style="font-family: rokkitt;">MONTHLY AVERAGE</h2>
+            <h1 class="w3-center" style="font-family: rokkitt; font-size: 50px;">15.5˚C</h1>
             <p>Rainfall : 0.8 mm</p>
             <p>Evaporation : 1.6 mm</p>
             <p>Sunshine : 2.6 hour</p>
@@ -39,10 +39,19 @@
             <p>Humidity : 75 %</p>
             <p>Pressure : 1017.4 hpa </p>
         </div>
-        <div style="flex:1; display: flex; align-items: center;">
-            <img src="../assets/logo.png" width="200px" style="vertical-align:middle;">
-            <p>8.8˚C/ 15.9˚C</p>
+        <div class="w3-center" style="flex:1;">
+            <img src="../assets/logo.png" width="200px" style="margin-top: 20%;">
+            <p style="font-size: 30px;">8.8˚C/ 15.9˚C</p>
         </div>
+    </div>
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <button class="w3-btn w3-bar" style="background-color: #636565; width: 90%; border-radius: 20px;" onclick="showContent('calendar')">
+            <span class="w3-left" style="color: white;">Calendar </span>
+            <i class="fa fa-angle-down w3-right" style="color: white;"></i>
+        </button>
+    </div>
+    <div id="calendar" class="w3-container w3-hide">
     </div>
 
 </body>

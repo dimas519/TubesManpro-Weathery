@@ -81,6 +81,7 @@ nav{
 
 
 /* MAIN */
+
 section {
     padding-top: 2rem;
     overflow: hidden;
@@ -118,6 +119,7 @@ section {
     border: none;
     background-color: #F4EBE1;
 }
+
 
 /* Second Nav */
 
@@ -331,4 +333,8 @@ section {
     margin: auto;
     margin-top: 15%;
     margin-bottom: 15%;
+}
+
+.weather-box p {
+    font-size: 20px;
 }
