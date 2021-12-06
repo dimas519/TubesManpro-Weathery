@@ -111,3 +111,28 @@
 .weather-box p {
     font-size: 20px;
 }
+
+
+
+/*Accordion*/
+.accor-bar {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.accor-bar button {
+    background-color: #636565; 
+    width: 90%; 
+    border-radius: 20px;
+}
+
+.accor-bar span {
+    color: white;
+    font-size: 20px;
+}
+
+.accor-bar i {
+    color: white;
+    font-size: 30px;
+}
