@@ -113,6 +113,42 @@
 }
 
 
+/*Calendar*/
+.calendar-table {
+    table-layout: fixed;
+    width: 900px;
+    height: 1000px;
+    border-collapse: collapse;
+}
+
+.calendar-table th {
+    text-align: center;
+}
+
+.calendar-table td {
+    border: 1px solid black;
+    background-color: white;
+    /*background-color: #F4EBE1;*/
+}
+
+.calendar-date {
+    padding: 10px;
+    vertical-align: top;
+}
+
+.calendar-image {
+    /*width: 70px;*/
+    display: block;
+    margin: auto;
+}
+
+.calendar-temp {
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+
 
 /*Accordion*/
 .accor-bar {

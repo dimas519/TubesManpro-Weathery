@@ -160,44 +160,62 @@
 
 
                 <br>
+            
+            <!-- Calendar -->
             <div class="accor-bar">
                 <button class="w3-btn w3-bar" onclick="showContent('calendar')">
+                    <span class="w3-left">Calendar </span>
+                    <i class="fa fa-angle-down w3-right"></i>
+                </button>
+            </div>
+            <div id="calendar" class="w3-container w3-hide">
+
+            </div>
+            <br>
+
+            <!-- Rainfall -->
+            <div class="accor-bar">
+                <button class="w3-btn w3-bar" onclick="showContent('rainfall')">
                     <span class="w3-left">Rainfall </span>
                     <i class="fa fa-angle-down w3-right"></i>
                 </button>
             </div>
-            <div id="calendar" class="w3-container w3-hide">
+            <div id="rainfall" class="w3-container w3-hide">
             </div>
-
             <br>
-                <div class="accor-bar">
-                <button class="w3-btn w3-bar" onclick="showContent('calendar')">
+
+            <!-- Humidity -->
+            <div class="accor-bar">
+                <button class="w3-btn w3-bar" onclick="showContent('humidity')">
                     <span class="w3-left">Humidity </span>
                     <i class="fa fa-angle-down w3-right"></i>
                 </button>
             </div>
-            <div id="calendar" class="w3-container w3-hide">
+            <div id="humidity" class="w3-container w3-hide">
             </div>
-
             <br>
-                <div class="accor-bar">
-                <button class="w3-btn w3-bar" onclick="showContent('calendar')">
-                    <span class="w3-left">Sushine </span>
+
+            <!-- Sunshine -->
+            <div class="accor-bar">
+                <button class="w3-btn w3-bar" onclick="showContent('sunshine')">
+                    <span class="w3-left">Sunshine </span>
                     <i class="fa fa-angle-down w3-right"></i>
                 </button>
             </div>
-            <div id="calendar" class="w3-container w3-hide">
+            <div id="sunshine" class="w3-container w3-hide">
             </div>
-
             <br>
-                <div class="accor-bar">
-                <button class="w3-btn w3-bar" onclick="showContent('calendar')">
+
+            <!-- Preasure -->
+            <div class="accor-bar">
+                <button class="w3-btn w3-bar" onclick="showContent('preasure')">
                     <span class="w3-left">Preasure </span>
                     <i class="fa fa-angle-down w3-right"></i>
                 </button>
             </div>
-            <div id="calendar" class="w3-container w3-hide">
+            <div id="preasure" class="w3-container w3-hide">
             </div>
+            <br>
 
 
 
