@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../lib/font-awesome.css">
     <link rel="stylesheet" href="../style/global.css">
     <link rel="stylesheet" href="../style/dwm.css">
-    <link rel="stylesheet" href="../style/dwm2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -41,59 +40,18 @@
             <p>Pressure : 1017.4 hpa </p>
         </div>
         <div class="w3-center" style="flex:1;">
-            <img src="../assets/logo.png" width="200px" style="margin-top: 5rem;">
+            <img src="../assets/logo.png" width="200px" style="margin-top: 5rem; ">
             <p style="font-size: 30px;">8.8˚C/ 15.9˚C</p>
         </div>
     </div>
 
-
-    <div class="accor-bar">
-        <button class="w3-btn w3-bar" onclick="showContent('calendar')">
-            <span class="w3-left">Calendar </span>
-            <i class="fa fa-angle-down w3-right"></i>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <button class="w3-btn w3-bar" style="background-color: #636565; width: 90%; border-radius: 20px;" onclick="showContent('calendar')">
+            <span class="w3-left" style="color: white;">Calendar </span>
+            <i class="fa fa-angle-down w3-right" style="color: white;"></i>
         </button>
     </div>
-        <div id="calendar" class="w3-container w3-hide">
-    </div>
-    <br>
-
-    <div class="accor-bar">
-        <button class="w3-btn w3-bar" onclick="showContent('calendar')">
-            <span class="w3-left">Rainfall </span>
-            <i class="fa fa-angle-down w3-right"></i>
-        </button>
-    </div>
-        <div id="calendar" class="w3-container w3-hide">
-    </div>
-    <br>
-
-    <div class="accor-bar">
-        <button class="w3-btn w3-bar" onclick="showContent('calendar')">
-            <span class="w3-left">Humidity </span>
-            <i class="fa fa-angle-down w3-right"></i>
-        </button>
-    </div>
-        <div id="calendar" class="w3-container w3-hide">
-    </div>
-    <br>
-
-    <div class="accor-bar">
-        <button class="w3-btn w3-bar" onclick="showContent('calendar')">
-            <span class="w3-left">Sushine </span>
-            <i class="fa fa-angle-down w3-right"></i>
-        </button>
-    </div>
-        <div id="calendar" class="w3-container w3-hide">
-    </div>
-
-    <br>
-        <div class="accor-bar">
-        <button class="w3-btn w3-bar" onclick="showContent('calendar')">
-            <span class="w3-left">Preasure </span>
-            <i class="fa fa-angle-down w3-right"></i>
-        </button>
-    </div>
-        <div id="calendar" class="w3-container w3-hide">
+    <div id="calendar" class="w3-container w3-hide">
     </div>
 
 </body>
