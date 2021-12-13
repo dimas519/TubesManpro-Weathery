@@ -31,7 +31,7 @@
     <!-- Searchbar -->
     <section class="main">
         <div class="container">
-            <form action="#" class="search" method="get">
+            <form action="dailyOneTwo.php" class="search" method="get">
                 <input type="text" placeholder="  Search City" name="search-city">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
@@ -59,7 +59,7 @@
     <!-- Date picker Form -->
     <section class="daily">
         <div class="container">
-            <form action="dwm.php" class="date-pick" method="get">
+            <form action="dailyOneTwo.php" class="date-pick" method="get">
                 <input type="date" name="date-picker-daily">
                 <button type="submit"><a href="dailyTwo.html" style="text-decoration: none;">SEARCH</a></button>
             </form>
@@ -71,3 +71,12 @@
     </footer>
 </body>
 </html>
+
+<?php 
+
+    if(isset($_GET['search-city']) && isset($_GET['date-picker-daily'])){
+        $city = $_GET['search-city'];
+        $day = $_GET['date-picker-daily'];
+    }
+
+?>
