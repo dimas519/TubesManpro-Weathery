@@ -73,7 +73,47 @@
         </div>
     </nav>
 
-    <div class="weather-box w3-card-4 w3-round-xxlarge" style="">
+    <section class="main" >
+        <div class="container">
+            <form action="monthlyTwo.php" class="search-d2" method="get">
+                <input type="text" placeholder="  Search City" name="search-city" style="margin: 5px;">
+                <button type="button" class="bkn-btn"><i class="fa fa-map-marker"></i></button>
+                <form action="monthlyTwo.php" class="monthly-pick" method="get">
+                    <select name="month" id="dd_month" class="custom-sel" style="margin: 5px;" >
+                        <option disabled selected> Month </option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select name="year" id="dd_year" class="custom-sel" style="margin: 5px;">
+                        <option disabled selected> Year </option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                    </select>
+                <button type="submit" class="btn-search-d2" style="margin: 5px;">SEARCH</button>
+                </form>
+            </form>     
+        </div>
+    </section>
+
+    <div class="weather-box w3-card-4 w3-round-xxlarge">
         <div style="padding: 30px; margin-left: 30px;">
             <h2 style="font-family: rokkitt;">MONTHLY AVERAGE</h2>
             <h1 class="w3-center" style="font-family: rokkitt; font-size: 50px;">15.5˚C</h1>
@@ -99,7 +139,6 @@
         </button>
     </div>
     <div id="calendar" class="w3-container w3-hide">
-
         <?php
             if (isset($_GET['month']) && isset($_GET['year'])) {
                 $month = $_GET['month'];
