@@ -31,11 +31,11 @@
 
     <!-- <div class=""> -->
 
-<br><br><br>    <br><br>
+
 
     
-    <section class="main">
-        <div class="container w3-center">
+
+        <div class="container w3-center" style="margin-top: 10%;">
             <form action="#" class="search-d2" method="get">
                 <input type="text" placeholder="  Search City" name="search-city">
                 <button type="button" class="bkn-btn"><i class="fa fa-map-marker"></i></button>
@@ -44,10 +44,9 @@
                 <button type="submit" class="btn-search-d2">SEARCH</button>
             </form>
         </div>
-    </section>
 
 
-        <div class="weather-box w3-card-4 w3-round-xxlarge" style="">
+        <div class="weather-box w3-card-4 w3-round-xxlarge" style="margin-top:20px;margin-bottom:20px;">
             <div style="padding: 30px; margin-left: 30px;">
                 <h2 style="font-family: rokkitt;">WEEKLY AVERAGE</h2>
                 <h1 class="w3-center" style="font-family: rokkitt; font-size: 50px;">15.5˚C</h1>
@@ -63,6 +62,10 @@
                 <p style="font-size: 30px;">8.8˚C/ 15.9˚C</p>
             </div>
         </div>
+    
+
+
+        
 
 
 
@@ -104,13 +107,13 @@
                 <br><br>
               
             <div>  -->
-                <br><br>
+        
 
 
 
 
                 <!-- buttonnya -->
-                <div class="accor-bar">
+                <div class="accor-bar" style="margin-top:20px">
                     <button class="w3-btn w3-bar" onclick="javaScript:document.getElementById('day1').classList.toggle('w3-hide')">
                     <span class="w3-left">
                     Day to Day
