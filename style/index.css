@@ -1,0 +1,16 @@
+body {
+	overflow-y: hidden;
+}
+
+.slide {
+	scroll-snap-type: x mandatory;  
+	display: flex;
+	overflow-x: scroll;
+}
+
+section {
+	min-width: 100vw;
+  	height: 100vh;
+  	scroll-snap-align: start;
+  	/*position: relative;*/
+}
