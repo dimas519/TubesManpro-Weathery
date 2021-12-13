@@ -13,7 +13,6 @@
     <title>Document</title>
 </head>
 <body>
-
     <!-- Header -->
     <nav class="navbar w3-top w3-container">
         <div style="flex: 1;">
@@ -29,24 +28,18 @@
         </div>
     </nav>
 
-    <!-- <div class=""> -->
+    <div class="container w3-center" style="margin-top: 10%;">
+        <form action="#" class="search-d2" method="get">
+            <input type="text" placeholder="  Search City" name="search-city">
+            <button type="button" class="bkn-btn"><i class="fa fa-map-marker"></i></button>
+            <input type="date" name="date-picker-daily" class="dp">
+            <input type="date" name="date-picker-daily" class="dp">
+            <button type="submit" class="btn-search-d2">SEARCH</button>
+        </form>
+    </div>
 
 
-
-    
-
-        <div class="container w3-center" style="margin-top: 10%;">
-            <form action="#" class="search-d2" method="get">
-                <input type="text" placeholder="  Search City" name="search-city">
-                <button type="button" class="bkn-btn"><i class="fa fa-map-marker"></i></button>
-                <input type="date" name="date-picker-daily" class="dp">
-                <input type="date" name="date-picker-daily" class="dp">
-                <button type="submit" class="btn-search-d2">SEARCH</button>
-            </form>
-        </div>
-
-
-        <div class="weather-box w3-card-4 w3-round-xxlarge" style="margin-top:20px;margin-bottom:20px;">
+        <div class="weather-box w3-card-4 w3-round-xxlarge">
             <div style="padding: 30px; margin-left: 30px;">
                 <h2 style="font-family: rokkitt;">WEEKLY AVERAGE</h2>
                 <h1 class="w3-center" style="font-family: rokkitt; font-size: 50px;">15.5˚C</h1>
