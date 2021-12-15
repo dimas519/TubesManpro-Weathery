@@ -57,13 +57,6 @@
         </div>
     
 
-
-        
-
-
-
-
-
         <!-- <div class="">
             <form action="" class="w3-center search-d2">
                 <div class="w3-row ">
@@ -101,9 +94,6 @@
               
             <div>  -->
         
-
-
-
 
                 <!-- buttonnya -->
                 <div class="accor-bar" style="margin-top:20px">
@@ -171,18 +161,7 @@
 
 
                 <br>
-            
-            <!-- Calendar -->
-            <div class="accor-bar">
-                <button class="w3-btn w3-bar" onclick="showContent('calendar')">
-                    <span class="w3-left">Calendar </span>
-                    <i class="fa fa-angle-down w3-right"></i>
-                </button>
-            </div>
-            <div id="calendar" class="w3-container w3-hide">
 
-            </div>
-            <br>
 
             <!-- Rainfall -->
             <div class="accor-bar">

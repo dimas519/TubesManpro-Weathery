@@ -147,6 +147,10 @@
                 echo '<div class="calendar-title">'. $monthName .' '. $year .'</div>';
                 echo create_calendar($month,$year);
             }
+            else{
+                echo '<div class="calendar-title">February 2011</div>';
+                echo create_calendar(02,2011);
+            }
 
             function create_calendar($month,$year){
                 $calendar = '<table class="calendar-table">';
