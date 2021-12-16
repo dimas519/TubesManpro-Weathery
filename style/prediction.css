@@ -137,6 +137,13 @@ html{
     font-size: 30pt;
 }
 
+.remo{
+    font-size: 10pt ;
+    float: right;
+    margin-right: 15px;
+    margin-top: 1rem;
+}
+
 .date{
     font-size: 16pt;
     padding-left: 1rem;
