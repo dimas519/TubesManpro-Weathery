@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../style/global.css">
     <link rel="stylesheet" href="../style/prediction.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../js/forecast.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -37,39 +38,49 @@
             
             </button>
             <div class="w3-bar-block w3-border w3-hide" id="drop_content">
-                <a href="#" class="drop_fill">Link 1</a>
-                <a href="#" class="drop_fill">Link 2</a>
-                <a href="#" class="drop_fill">Link 3</a>
-                <a href="#" class="drop_fill">Link 1</a>
-                <a href="#" class="drop_fill">Link 2</a>
-                <a href="#" class="drop_fill">Link 3</a>
+                <a href="#" class="drop_fill" id="rainfall">Rainfall</a>
+                <a href="#" class="drop_fill" id="evaporation">Evaporation</a>
+                <a href="#" class="drop_fill" id="sunshine">Sunshine</a>
+                <a href="#" class="drop_fill" id="windspeed">Wind Speed</a>
+                <a href="#" class="drop_fill" id="humidity">Humidity</a>
+                <a href="#" class="drop_fill" id="pressure">Pressure</a>
+                <a href="#" class="drop_fill" id="recommend">Recommendation</a>
             </div>
         </div>
-        <button class="addbutton">ADD</button>
     </section>
 
     <section class="selected_param">
         <form action="">
             <div class="border_box">
-                <div class="selected_content">
-                    <span>test</span>
+                <div class="selected_content w3-hide" id="rainfallRes">
+                    <span>Rainfall</span>
                     <input type="text">
+                    <a href="#" class="remo" id="remo1">remove</a>
                 </div>
-                <div class="selected_content">
-                    <span>test</span>
+                <div class="selected_content w3-hide" id="evaporationRes">
+                    <span>evaporation</span>
                     <input type="text">
+                    <a href="#" class="remo" id="remo2">remove</a>
                 </div>
-                <div class="selected_content">
-                    <span>test</span>
+                <div class="selected_content w3-hide" id="sunshineRes">
+                    <span>sunshine</span>
                     <input type="text">
+                    <a href="#" class="remo" id="remo3">remove</a>
                 </div>
-                <div class="selected_content">
-                    <span>test</span>
+                <div class="selected_content w3-hide" id="windspeedRes">
+                    <span>wind speed</span>
                     <input type="text">
+                    <a href="#" class="remo" id="remo4">remove</a>
                 </div>
-                <div class="selected_content">
-                    <span>test</span>
+                <div class="selected_content w3-hide" id="humidityRes">
+                    <span>humidity</span>
                     <input type="text">
+                    <a href="#" class="remo" id="remo5">remove</a>
+                </div>
+                <div class="selected_content w3-hide" id="pressureRes">
+                    <span>pressure</span>
+                    <input type="text">
+                    <a href="#" class="remo" id="remo6">remove</a>
                 </div>
             </div>
         </form>
@@ -78,7 +89,7 @@
     </section>
 
     <section class="process_button">
-        <button><a href="predictionResult.html" style="text-decoration: none;">Process</a></button>
+        <button><a href="predictionResult.html" style="text-decoration: none;">Process</a> </button>
     </section>
 
     </div>
