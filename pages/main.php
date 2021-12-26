@@ -1,5 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php  
+require_once '../Database/database.php';
+$query="SELECT * FROM kota";
+$db=new DB();
+$data=$db->executeSelectQuery($query);
+
+
+
+?>
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,9 +45,22 @@
 
     <section class="main">
         <div class="container">
-            <form action="dailyOne.html" class="search" method="get">
-                <input type="text" placeholder="  Search City" name="search-city">
-                <button type="submit"><a href="dailyOne.html"><i class="fa fa-search"></i></a></button>
+            <form action="dailyOne.php" class="search" method="POST">
+                <select type="text" placeholder="  Search City" name="city">
+                <option  disabled selected value="-1">Search City</option>
+                <?php  
+                foreach($data as $kolom){
+                   ?>
+                <option value= <?php  echo$kolom['IdKota'] ?> > <?php echo $kolom['NamaKota'];  ?>  </option>
+            
+
+                <?php 
+                }         
+                ?>
+
+
+                </select>
+                <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
     </section>
@@ -47,4 +70,3 @@
     </div>
 
 </body>
-</html>
