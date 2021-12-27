@@ -5,6 +5,10 @@
 
 
     require_once '../Database/database.php';
+    require_once '../Database/converter.php';
+
+
+
     $query="SELECT * FROM prediksi WHERE Location = $_POST[city] AND Date ="." '$_POST[date]' ";
     
 
@@ -91,7 +95,7 @@
                                 <p class="desc">WindSpeed : <span class="wsnum"><?php echo $data[0]['WindSpeed9am'] ?></span> km/h</p>
                             </div>
                             <div class="w3-container">
-                                <p class="desc">WindDirection : <span class="wd-num">West</span></p>
+                                <p class="desc">WindDirection : <span class="wd-num"><?php  echo Converter::converter($data[0]['WindDir9am']) ?></span></p>
                             </div>
                             <div class="w3-container">
                                 <p class="desc">Humidity : <span class="hum-num"><?php echo $data[0]['Humidity9am'] ?></span> %</p>
@@ -133,7 +137,7 @@
                                 <p class="desc">WindSpeed : <span class="wsnum"><?php echo $data[0]['WindSpeed3pm'] ?></span> km/h</p>
                             </div>
                             <div class="w3-container">
-                                <p class="desc">WindDirection : <span class="wd-num">West</span></p>
+                                <p class="desc">WindDirection : <span class="wd-num"> <?php  echo Converter::converter($data[0]['WindDir3pm']) ?></span></p>
                             </div>
                             <div class="w3-container">
                                 <p class="desc">Humidity : <span class="hum-num"><?php echo $data[0]['Humidity3pm'] ?></span> %</p>
@@ -148,7 +152,6 @@
         </div>
 
 
-        <?php  echo json_encode($data); ?>
     </section>
     
     <footer>
