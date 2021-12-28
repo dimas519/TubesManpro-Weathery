@@ -76,7 +76,13 @@
                                 <p class="temp"> <?php echo $data[0]['Temp9am'] ?> &#8451</p>
                             </div>
                             <div class="w3-half w3-center">
-                                <img src="../assets/Logo.png" alt="Weather Condition" style="width: 7rem;">
+                                <img src= <?php 
+                                if($data[0]['RainToday']==0){
+                                    echo "../assets/Logo.png";
+                                }else{
+                                    echo "../assets/Rain.png";
+                                }
+                                ?>     alt="Weather Condition" style="width: 7rem;">
                                 <p class="temp-desc"><span class="lo-temp"><?php echo $data[0]['MinTemp'] ?> &#8451</span> / <span class="hi-temp"><?php echo $data[0]['MaxTemp'] ?> &#8451</span></p>
                             </div>
                             <div class="w3-container">
@@ -118,7 +124,13 @@
                                 <p class="temp"><?php echo $data[0]['Temp3pm'] ?> &#8451</p>
                             </div>
                             <div class="w3-half w3-center">
-                                <img src="../assets/Logo.png" alt="Weather Condition" style="width: 7rem;">
+                                <img src= <?php 
+                                if($data[0]['RainToday']==0){
+                                    echo "../assets/Logo.png";
+                                }else{
+                                    echo "../assets/Rain.png";
+                                }
+                                ?> alt="Weather Condition" style="width: 7rem;">
                                 <p class="temp-desc"><span class="lo-temp">  <?php echo $data[0]['MinTemp'] ?> &#8451</span> / <span class="hi-temp"><?php echo $data[0]['MaxTemp'] ?> &#8451</span></p>
                             </div>
                             <div class="w3-container">

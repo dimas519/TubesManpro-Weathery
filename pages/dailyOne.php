@@ -1,5 +1,5 @@
 <?php  
-    if(!isset($_POST['city'])||$_POST['city']==-1 ){
+    if(!isset($_GET['city'])||$_GET['city']==-1 ){
         header("location:main.php");
     }
 
@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="../style/global.css">
     <link rel="stylesheet" href="../style/dwm.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="../js/web.js"></script>
+    <script defer src="../js/web.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -58,7 +58,7 @@
                 <?php  
                 foreach($data as $kolom){
                    ?>
-                <option value= <?php  $id=$kolom['IdKota']; echo $id; if($id==$_POST['city']){echo" Selected";};    ?> > <?php echo $kolom['NamaKota'];  ?>  </option>
+                <option value= <?php  $id=$kolom['IdKota']; echo $id; if($id==$_GET['city']){echo" Selected";};    ?> > <?php echo $kolom['NamaKota'];  ?>  </option>
             
 
                 <?php 
@@ -77,13 +77,13 @@
             <div class="sec-navbar">
                 <ul class="nav-list-second">
                     <li class="nav-item">
-                        <a href="../pages/dailyOne.html" class="nav-link active second">One Day</a>
+                        <a href= <?php  echo "../pages/dailyOne.php?city=".$_GET['city'] ?> class="nav-link active second">One Day</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../pages/weeklyOne.html" class="nav-link second">Weekly</a>
+                        <a href=<?php  echo "../pages/weeklyOne.php?city=".$_GET['city'] ?> class="nav-link second">Weekly</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../pages/monthlyOne.html" class="nav-link second">Monthly</a>
+                        <a href=<?php  echo "../pages/monthlyOne.php?city=".$_GET['city'] ?>class="nav-link second">Monthly</a>
                     </li>
                 </ul>
             </div>
@@ -93,7 +93,7 @@
     <section class="daily">
         <div class="container">
             <form action="dailyTwo.php" class="date-pick" method="POST">
-                <input type="text" hidden name="city" value= <?php echo $_POST['city'];  ?> id="city-hidden">
+                <input type="text" hidden name="city" value= <?php echo $_GET['city'];  ?> id="city-hidden">
                 <input type="date" name="date">
                 <button type="submit">SEARCH</button>
             </form>

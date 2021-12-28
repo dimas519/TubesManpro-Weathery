@@ -1,5 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php  
+    if(!isset($_GET['city'])||$_GET['city']==-1 ){
+       // header("location:main.php");
+    }
+
+
+    require_once '../Database/database.php';
+    $query="SELECT * FROM kota";
+    $db=new DB();
+    $data=$db->executeSelectQuery($query);
+
+
+
+
+?>
+
+
+
+
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +30,7 @@
     <link rel="stylesheet" href="../style/global.css">
     <link rel="stylesheet" href="../style/dwm.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <script defer src="../js/web.js"></script>
     <!-- <link rel="stylesheet" href="../style/dwm.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
@@ -35,9 +55,8 @@
     <!-- Searchbar -->
     <section class="main">
         <div class="container">
-            <form action="#" class="search" method="get">
-                <input type="text" placeholder="  Search City" name="search-city">
-                <button type="submit"><i class="fa fa-search"></i></button>
+            <form action="#" class="search" method="get" onchange="changeValue()">
+                <input type="text" placeholder="  Search City" name="city" id=dropDownCity>
             </form>
         </div>
         <!-- Searchbar Ends-->
@@ -63,11 +82,14 @@
     <!-- Date picker Form -->
     <section class="daily">
         <div class="container">
-            <form action="#" class="date-pick" method="get">
-                <input type="date" name="date-picker-weekly-from">
-                <input type="date" name="date-picker-weekly-to" style="margin-left: 1.2rem;">
-                <button type="submit" class="btn-search"><a href="weeklyTwo.php" style="text-decoration: none;">SEARCH</a></button>
+
+            <form action="weeklyTwo.php" class="date-pick" method="get">
+                <input type="text" hidden name="city" value= <?php echo $_GET['city'];  ?> id="city-hidden">
+                <input type="date" name="from">
+                <input type="date" name="to" style="margin-left: 1.2rem;">
+                <button type="submit" class="btn-search">SEARCH</button>
             </form>
+
         </div>
     </section>
 
@@ -79,4 +101,3 @@
         
     </footer>
 </body>
-</html>

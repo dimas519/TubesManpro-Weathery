@@ -1,4 +1,24 @@
-<html lang="en">
+<?php  
+    if(!isset($_GET['city'])||$_GET['city']==-1 ||!isset($_GET['from']) ||!isset($_GET['to'])   ){
+       // header("location:main.php");
+    }
+
+
+    require_once '../Database/database.php';
+    require_once '../Database/converter.php';
+    $query="SELECT * FROM prediksi WHERE Location=$_GET[city] and Date BETWEEN "." '$_GET[from]' AND "." '$_GET[to]' ";
+    $db=new DB();
+    $data=$db->executeSelectQuery($query);
+
+    echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    print_r(getdate())
+
+?>
+
+
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -57,42 +77,7 @@
         </div>
     
 
-        <!-- <div class="">
-            <form action="" class="w3-center search-d2">
-                <div class="w3-row ">
-                    <div class="w3-col s4 empty"></div>
-                    <div class=" ">
-                        <div >
-                            <select name="kota" id="kota" class="w3-input w3-padding">
-                                AMBIL DARI DB
-
-                                example 
-                                 <option value="id0">Adelaide</option>
-                                <option value="id1">Sydney</option>
-                            </select>
-                        </div>
-                        
-                        <div class="">
-                            <input type="date" name="from" id="from" class="dp">
-                        </div>
-                        <div style="margin-left: 0px !important;">
-                            <input type="date" name="to" id="to" class=" dp">
-                        </div>
-                    </div>
-                    <div class="w3-col s1 ">
-                        <input type="submit" value="SEARCH" class="btn-search-d2">
-
-                    </div>
-
-
-                </div>
-            </form> 
-
-
-
-                <br><br>
-              
-            <div>  -->
+    
         
 
                 <!-- buttonnya -->
@@ -112,20 +97,21 @@
                         $i=0;
                         for ($i=$i;$i<4;$i++){?>
                             <div class="w3-col s2 w3-center back w3-card-4 w3-margin w3-round-xlarge">
-                                <p>Monday</p>
-                                <p>18</p>
                                 <?php  
-                                if(true){?>
+                                $dateArr=getdate(strtotime($data[$i]['Date']));
+                                ?>
+                                <p><?php  echo $dateArr['weekday']; ?></p>
+                                <p><?php  echo $dateArr['mday'];?></p>
+                                <?php  
+                                if($data[$i]['RainToday']==1){?>
                                     <img src="../assets/Logo.png" alt="" style="width:80px;">
-                                <?php  
+                                <?php
                                     }else{
-
-
-                                    
-                                        
-                                    }?>
-                                <h4>15.5 C</h4>
-                                <h5>8.8/15.9</h5>
+                                ?>
+                                 <img src="../assets/Rain.png" alt="" style="width:80px;">
+                                <?php }?>
+                                <h4><?php $avg=(($data[$i]['Temp9am']+$data[$i]['Temp3pm'])/2); echo $avg;  ?></h4>
+                                <h5><?php echo $data[$i]['MinTemp']?>/<?php echo $data[$i]['MaxTemp']  ?></h5>
 
                             </div>
 
@@ -135,23 +121,23 @@
                     <div class="w3-row">
                         <div class="w3-col s3 empty"></div>
                         <?php   
-                        for($i=$i;$i<7;$i++){
-                        ?>
+                        for($i=$i;$i<7;$i++){?>
                         <div class="w3-col s2 w3-center back w3-card-4 w3-margin w3-round-xlarge">
-                                <p>Monday</p>
-                                <p>18</p>
                                 <?php  
-                                if(true){?>
+                                $dateArr=getdate(strtotime($data[$i]['Date']));
+                                ?>
+                                <p><?php  echo $dateArr['weekday']; ?></p>
+                                <p><?php  echo $dateArr['mday'];?></p>
+                                <?php  
+                                if($data[$i]['RainToday']==1){?>
                                     <img src="../assets/Logo.png" alt="" style="width:80px;">
-                                <?php  
+                                <?php
                                     }else{
-
-
-                                    
-                                        
-                                    }?>
-                                <h4>15.5 C</h4>
-                                <h5>8.8/15.9</h5>
+                                ?>
+                                 <img src="../assets/Rain.png" alt="" style="width:80px;">
+                                <?php }?>
+                                <h4><?php $avg=(($data[$i]['Temp9am']+$data[$i]['Temp3pm'])/2); echo $avg;  ?></h4>
+                                <h5><?php echo $data[$i]['MinTemp']?>/<?php echo $data[$i]['MaxTemp']  ?></h5>
 
                             </div>
 
@@ -220,12 +206,10 @@
 
 
 
-
-
+    
 
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
-</html>

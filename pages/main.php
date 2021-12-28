@@ -45,7 +45,7 @@ $data=$db->executeSelectQuery($query);
 
     <section class="main">
         <div class="container">
-            <form action="dailyOne.php" class="search" method="POST">
+            <form action="dailyOne.php" class="search" method="GET">
                 <select type="text" placeholder="  Search City" name="city">
                 <option  disabled selected value="-1">Search City</option>
                 <?php  
