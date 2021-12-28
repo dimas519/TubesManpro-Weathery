@@ -75,21 +75,49 @@
         </form>
     </div>
 
+        <?php  
+        $temp3=0;
+        $temp9=0;
+        $rf=0;
+        $eva=0;
+        $windSpeed=0;
+        $humi=0;
+        $press=0;
+        $sunshine=0;
+        $i=0;
+        foreach ($data as $row){
+            $temp3+=$row['Temp3pm'];
+            $temp9+=$row['Temp9am'];
+            $rf+=$row['Rainfall'];
+            $eva+=$row['Evaporation'];
+            $windSpeed+=(($row['WindSpeed3pm']+$row['WindSpeed9am'])/2);
+            $humi+=(($row['Humidity3pm']+$row['Humidity9am'])/2);
+            $press+=(($row['Pressure3pm']+$row['Pressure9am'])/2);
+            $sunshine+=$row['Sunshine'];
+            $i++;
+        }
+        
+        
+        
+        
+        
+        ?>
+
 
         <div class="weather-box w3-card-4 w3-round-xxlarge">
             <div style="padding: 30px; margin-left: 30px;">
                 <h2 style="font-family: rokkitt;">WEEKLY AVERAGE</h2>
-                <h1 class="w3-center" style="font-family: rokkitt; font-size: 50px;">15.5˚C</h1>
-                <p>Rainfall : 0.8 mm</p>
-                <p>Evaporation : 1.6 mm</p>
-                <p>Sunshine : 2.6 hour</p>
-                <p>WindSpeed : 13 km/hr</p>
-                <p>Humidity : 75 %</p>
-                <p>Pressure : 1017.4 hpa </p>
+                <h1 class="w3-center" style="font-family: rokkitt; font-size: 50px;"><?php  echo ($temp3/$i+$temp9/$i)/2 ?> ˚C</h1>
+                <p>Rainfall : <?php echo $rf/$i  ?> mm</p>
+                <p>Evaporation : <?php echo $eva/$i  ?> mm</p>
+                <p>Sunshine : <?php echo $sunshine/$i  ?> hour</p>
+                <p>WindSpeed : <?php echo $windSpeed/$i  ?> km/hr</p>
+                <p>Humidity : <?php echo $humi/$i  ?> %</p>
+                <p>Pressure : <?php echo $press/$i  ?> hpa </p>
             </div>
             <div class="w3-center" style="flex:1;">
                 <img src="../assets/logo.png" width="200px" style="margin-top: 5rem; ">
-                <p style="font-size: 30px;">8.8˚C/ 15.9˚C</p>
+                <p style="font-size: 30px;"><?php  echo $temp9/$i ?> ˚C/ <?php  echo $temp3/$i ?> ˚C</p>
             </div>
         </div>
     
