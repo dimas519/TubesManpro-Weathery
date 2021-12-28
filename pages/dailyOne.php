@@ -83,7 +83,7 @@
                         <a href=<?php  echo "../pages/weeklyOne.php?city=".$_GET['city'] ?> class="nav-link second">Weekly</a>
                     </li>
                     <li class="nav-item">
-                        <a href=<?php  echo "../pages/monthlyOne.php?city=".$_GET['city'] ?>class="nav-link second">Monthly</a>
+                        <a href=<?php  echo "../pages/monthlyOne.php?city=".$_GET['city'] ?> class="nav-link second">Monthly</a>
                     </li>
                 </ul>
             </div>

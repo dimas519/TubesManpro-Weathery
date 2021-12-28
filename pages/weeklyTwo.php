@@ -10,8 +10,6 @@
     $db=new DB();
     $data=$db->executeSelectQuery($query);
 
-    echo "<br>";echo "<br>";echo "<br>";echo "<br>";
-    print_r(getdate())
 
 ?>
 
@@ -29,10 +27,29 @@
 
     <link rel="stylesheet" href="../lib/w3.css">
     <link rel="stylesheet" href="../lib/font-awesome.css">
+    <script src="../js/Chart.bundle.js"></script>
+    <script src="../js/utils.js"></script>
+
     
     <title>Document</title>
 </head>
 <body>
+
+<style>
+    canvas{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+</style>
+
+
+
+
+
+
+
+
     <!-- Header -->
     <nav class="navbar w3-top w3-container">
         <div style="flex: 1;">
@@ -77,8 +94,17 @@
         </div>
     
 
-    
-        
+        <!-- helper chart -->
+        <?php  
+        foreach ($data as $row){
+        ?>
+        <p class="chartDate w3-hide"> <?php  echo $row['Date'] ?></p>
+        <p class="chartRainFall w3-hide"><?php echo $row['Rainfall']  ?></p>
+        <p class="chartMinTemp w3-hide"><?php echo $row['MinTemp']  ?></p>
+        <p class="chartMaxTemp w3-hide"><?php echo $row['MaxTemp']  ?></p>
+        <p class="chartSunshine w3-hide"><?php echo $row['Sunshine']  ?></p>
+        <p class="chartEvaporation w3-hide"><?php echo $row['Evaporation']  ?></p>
+        <?php  } ?>
 
                 <!-- buttonnya -->
                 <div class="accor-bar" style="margin-top:20px">
@@ -157,17 +183,24 @@
                 </button>
             </div>
             <div id="rainfall" class="w3-container w3-hide">
+                <div style="width: 50%;margin-left:25rem">
+                    <canvas  id="canvasRainfall"></canvas>
+                </div>
             </div>
             <br>
 
             <!-- Humidity -->
             <div class="accor-bar">
                 <button class="w3-btn w3-bar" onclick="showContent('humidity')">
-                    <span class="w3-left">Humidity </span>
+                    <span class="w3-left">Min- Max Temperature </span>
                     <i class="fa fa-angle-down w3-right"></i>
                 </button>
             </div>
             <div id="humidity" class="w3-container w3-hide">
+            <div style="width: 50%;margin-left:25rem">
+                    <canvas id="canvasMinMax"></canvas>
+                    <canvas id="canvasMaxMax"></canvas>
+                </div>
             </div>
             <br>
 
@@ -179,30 +212,49 @@
                 </button>
             </div>
             <div id="sunshine" class="w3-container w3-hide">
+                <div style="width: 50%;margin-left:25rem">
+                    <canvas id="canvasSunshine"></canvas>
+                </div>
             </div>
             <br>
 
             <!-- Preasure -->
             <div class="accor-bar">
                 <button class="w3-btn w3-bar" onclick="showContent('preasure')">
-                    <span class="w3-left">Preasure </span>
+                    <span class="w3-left">Evaporation </span>
                     <i class="fa fa-angle-down w3-right"></i>
                 </button>
             </div>
             <div id="preasure" class="w3-container w3-hide">
+                <div style="width: 50%;margin-left:25rem">
+                    <canvas id="canvasEvaporation"></canvas>
+                </div>
             </div>
             <br>
-
-
-
-
-
-
-
             </div>
         </div>
 
     </div>
+    <script src="../js/ChartBuilder.js"></script>
+    <script>
+        buildRainfall();
+        buildMinTemp();
+        buildMaxTemp();
+        buildSunshine();
+        buildEvaporation();
+    </script>
+
+<script type="text/javascript">
+        function showContent(id) {
+            var x = document.getElementById(id);
+            if(x.className.indexOf("w3-show") == -1){ 
+                x.className += " w3-show";
+            }
+            else{ 
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
 
 
 
