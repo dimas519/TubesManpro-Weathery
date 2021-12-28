@@ -56,14 +56,20 @@
     <section class="main">
         <div class="container">
             <form action="#" class="search" method="get" onchange="changeValue()">
+            <select type="text" placeholder="  Search City" name="city" id=dropDownCity>
                 <option  disabled selected value="-1">Search City</option>
                 <?php  
                 foreach($data as $kolom){
                    ?>
                 <option value= <?php  $id=$kolom['IdKota']; echo $id; if($id==$_GET['city']){echo" Selected";};    ?> > <?php echo $kolom['NamaKota'];  ?>  </option>
+            
+
                 <?php 
                 }         
                 ?>
+
+
+                </select>
             </form>
         </div>
         <!-- Searchbar Ends-->
