@@ -34,7 +34,7 @@
     <section class="main">
         <div class="container">
             <form action="#" class="search" method="get">
-                <input type="text" placeholder="  Search City" name="search-city">
+                <input type="text" placeholder="  Search City" value= <?php echo $_GET['city'];?> name="search-city">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
@@ -63,6 +63,7 @@
     <section class="daily">
         <div class="container">
             <form action="monthlyTwo.php" class="monthly-pick" method="get">
+                <input type="text" placeholder="  Search City" name="search-city">
                 <select name="month" id="dd_month" class="custom-sel" >
                     <option disabled selected> Month </option>
                     <option value="1">January</option>
@@ -91,7 +92,7 @@
                     <option value="2016">2016</option>
                     <option value="2017">2017</option>
                 </select>
-                <button type="submit" class="btn-search"><a href="monthlyTwo.php" style="text-decoration: none;">SEARCH</a></button>
+                <button type="submit" class="btn-search">SEARCH</button>
             </form>
         </div>
     </section>
