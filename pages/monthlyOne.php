@@ -1,4 +1,20 @@
-<!DOCTYPE html>
+<?php  
+    if(!isset($_GET['city'])||$_GET['city']==-1 ){
+        header("location:main.php");
+    }
+
+
+    require_once '../Database/database.php';
+    $query="SELECT * FROM kota";
+    $db=new DB();
+    $data=$db->executeSelectQuery($query);
+
+
+
+
+?>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,6 +26,7 @@
     <link rel="stylesheet" href="../style/global.css">
     <link rel="stylesheet" href="../style/dwm.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="../js/web.js"></script>
     
     <!-- <link rel="stylesheet" href="../style/dwm.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
@@ -33,8 +50,21 @@
     <!-- Searchbar -->
     <section class="main">
         <div class="container">
-            <form action="#" class="search" method="get">
-                <input type="text" placeholder="  Search City" value= <?php echo $_GET['city'];?> name="search-city">
+            <form action="#" class="search" method="get" onchange="changeValue()">
+            <select type="text" placeholder="  Search City" name="city" id=dropDownCity>
+                <option  disabled selected value="-1">Search City</option>
+                <?php  
+                foreach($data as $kolom){
+                   ?>
+                <option value= <?php  $id=$kolom['IdKota']; echo $id; if($id==$_GET['city']){echo" Selected";};    ?> > <?php echo $kolom['NamaKota'];  ?>  </option>
+            
+
+                <?php 
+                }         
+                ?>
+
+
+                </select>
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
@@ -63,7 +93,7 @@
     <section class="daily">
         <div class="container">
             <form action="monthlyTwo.php" class="monthly-pick" method="get">
-                <input type="text" placeholder="  Search City" name="search-city">
+                <input type="text" hidden name="city" value= <?php echo $_GET['city'];  ?> id="city-hidden">
                 <select name="month" id="dd_month" class="custom-sel" >
                     <option disabled selected> Month </option>
                     <option value="1">January</option>
@@ -105,4 +135,3 @@
         
     </footer>
 </body>
-</html>
