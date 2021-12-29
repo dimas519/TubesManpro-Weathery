@@ -1,6 +1,6 @@
 <?php  
     if(!isset($_POST['city'])||!isset($_POST['date']) ){
-        //header("location:dailyOne.php");
+        header("location:dailyOne.php?code=1");
     }
 
 
@@ -13,8 +13,11 @@
     
 
     $db=new DB();
-    $data=$db->executeSelectQuery($query);
+    $data=$db->executeSelectQuery($query.length);
     
+    if(count($data)==0){
+        header("location:dailyOne.php?code=2");
+    }
 
 
 

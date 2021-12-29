@@ -20,7 +20,7 @@ nameFile=str(kota);
 
 allKeys=jsonData.keys()
 for key in allKeys:
-    newDataFrame[key]=[jsonData[key]]
+    newDataFrame[key]=[int(jsonData[key])]
     nameFile=nameFile+str("-")
     nameFile=nameFile+str(key)
 
@@ -33,6 +33,6 @@ hasilPrediksiToday=modelToday.predict(dfbaru)
 modelTomorrow= pickle.load(open("modelTrain/Tomorrow/"+nameFile, 'rb'))
 hasilPrediksiTomorrow=modelTomorrow.predict(dfbaru)
 
-print(str(hasilPrediksi[0])+","+str(hasilPrediksiTomorrow[0]))
+print(str(hasilPrediksiToday[0])+"*"+str(hasilPrediksiTomorrow[0]))
 
 
