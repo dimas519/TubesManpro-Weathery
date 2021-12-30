@@ -1,6 +1,6 @@
 <?php  
     if(!isset($_GET['city'])||$_GET['city']==-1 ){
-       // header("location:main.php");
+       header("location:mainWeather.php");
     }else if(isset($_GET['code'])){
         if($_GET['code']==1){
 
@@ -17,21 +17,11 @@
         }
     }
 
-
     require_once '../Database/database.php';
     $query="SELECT * FROM kota";
     $db=new DB();
     $data=$db->executeSelectQuery($query);
-
-
-
-
 ?>
-
-
-
-
-
 
 
 <head>
@@ -60,8 +50,8 @@
         <div style="flex: 1;  margin-top: 20px;">
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="main.html" class="active">Weather</a></li>
-                <li><a href="prediction.html">Prediction</a></li>
+                <li><a href="mainWeather.php" class="active">Weather</a></li>
+                <li><a href="mainPrediction.php">Prediction</a></li>
             </ul>
         </div>
     </nav>

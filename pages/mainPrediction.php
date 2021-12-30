@@ -33,25 +33,26 @@ $data=$db->executeSelectQuery($query);
         <div style="flex: 1;  margin-top: 20px;">
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="#" class="active">Weather</a></li>
-                <li><a href="mainPrediction.php">Prediction</a></li>
+                <li><a href="mainWeather.php" class="active">Weather</a></li>
+                <li><a href="#">Prediction</a></li>
             </ul>
         </div>
     </nav>
 
     <div style="text-align: center;">
-        <h1 style="margin-top: 10%; font-family: rokkitt; font-size: 50px;">Where do you want to look up the weather for ?</h1>
+        <h1 style="margin-top: 10%; font-family: rokkitt; font-size: 50px;">Where do you want to predict the weather for ?</h1>
     </div>
 
     <section class="main">
         <div class="container">
-                <form action="dailyOne.php" class="monthly-pick" method="GET">
-                <select type="text" placeholder="  Search City" name="city" class="custom-sel">
+            <form action="prediction.php" class="monthly-pick" method="GET">
+                
+                <select type="text" placeholder="  Search City" name="city" id=dropDownCity class="custom-sel">
                 <option  disabled selected value="-1">Search City</option>
                 <?php  
                 foreach($data as $kolom){
                    ?>
-                <option value= <?php  echo$kolom['IdKota'] ?> > <?php echo $kolom['NamaKota'];  ?>  </option>
+                <option value= <?php  echo $kolom['IdKota'];    ?> > <?php echo $kolom['NamaKota'];  ?>  </option>
             
 
                 <?php 
