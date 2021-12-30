@@ -1,5 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php  
+    if(!isset($_GET['city'])||$_GET['city']==-1 ){
+        header("location:main.php");
+    }else if(isset($_GET['code'])){
+        if($_GET['code']==1){
+
+            // kalau mau ganti ganti aja
+            echo '
+        <script>
+            alert("Silahkan Isi tanggal dan kota dahulu")
+        </script>';
+        }else if($_GET['code']==2){
+            echo '
+            <script>
+                alert("Tanggal yang anda pilih tidak ditemukan")
+            </script>';
+        }
+    }
+
+
+
+
+    require_once '../Database/database.php';
+    $query="SELECT * FROM kota";
+    $db=new DB();
+    $data=$db->executeSelectQuery($query);
+
+
+
+
+?>
+
+
+
+
+
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +47,7 @@
     <link rel="stylesheet" href="../style/global.css">
     <link rel="stylesheet" href="../style/dwm.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <script defer src="../js/web.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -31,9 +68,21 @@
     <!-- Searchbar -->
     <section class="main">
         <div class="container">
-            <form action="dailyOneTwo.php" class="search" method="get">
-                <input type="text" placeholder="  Search City" name="search-city">
-                <button type="submit"><i class="fa fa-search"></i></button>
+            <form action="#" class="search" method="get" onchange="changeValue()">
+            <select type="text" placeholder="  Search City" name="city" id=dropDownCity>
+                <option  disabled selected value="-1">Search City</option>
+                <?php  
+                foreach($data as $kolom){
+                   ?>
+                <option value= <?php  $id=$kolom['IdKota']; echo $id; if($id==$_GET['city']){echo" Selected";};    ?> > <?php echo $kolom['NamaKota'];  ?>  </option>
+            
+
+                <?php 
+                }         
+                ?>
+
+
+                </select>
             </form>
         </div>
         <!-- Searchbar Ends-->
@@ -44,13 +93,13 @@
             <div class="sec-navbar">
                 <ul class="nav-list-second">
                     <li class="nav-item">
-                        <a href="../pages/dailyOne.html" class="nav-link active second">One Day</a>
+                        <a href= <?php  echo "../pages/dailyOne.php?city=".$_GET['city'] ?> class="nav-link active second">One Day</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../pages/weeklyOne.html" class="nav-link second">Weekly</a>
+                        <a href=<?php  echo "../pages/weeklyOne.php?city=".$_GET['city'] ?> class="nav-link second">Weekly</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../pages/monthlyOne.html" class="nav-link second">Monthly</a>
+                        <a href=<?php  echo "../pages/monthlyOne.php?city=".$_GET['city'] ?> class="nav-link second">Monthly</a>
                     </li>
                 </ul>
             </div>
@@ -59,24 +108,22 @@
     <!-- Date picker Form -->
     <section class="daily">
         <div class="container">
-            <form action="dailyOneTwo.php" class="date-pick" method="get">
-                <input type="date" name="date-picker-daily">
-                <button type="submit"><a href="dailyTwo.html" style="text-decoration: none;">SEARCH</a></button>
+            <form action="dailyTwo.php" class="date-pick" method="GET">
+                <input type="text" hidden name="city" value= <?php echo $_GET['city'];  ?> id="city-hidden">
+                <input type="date" name="date">
+                <button type="submit">SEARCH</button>
             </form>
         </div>
     </section>
+
+    <div style="margin-left: 0%; opacity: 0.3; margin-top: 7%;">
+        <img src="../assets/color _city.png" width="100%">
+    </div>
     
     <footer>
 
     </footer>
+
+
+
 </body>
-</html>
-
-<?php 
-
-    if(isset($_GET['search-city']) && isset($_GET['date-picker-daily'])){
-        $city = $_GET['search-city'];
-        $day = $_GET['date-picker-daily'];
-    }
-
-?>

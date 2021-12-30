@@ -1,4 +1,24 @@
-<html lang="en">
+<?php  
+    if(!isset($_GET['city'])||$_GET['city']==-1 ||!isset($_GET['from']) ||!isset($_GET['to'])   ){
+       header("location:weeklyOne.php?code=1");
+    }
+
+
+    require_once '../Database/database.php';
+    require_once '../Database/converter.php';
+    $query="SELECT * FROM prediksi WHERE Location=$_GET[city] and Date BETWEEN "." '$_GET[from]' AND "." '$_GET[to]' ";
+    $db=new DB();
+    $data=$db->executeSelectQuery($query);
+
+    if(count($data)<7){
+        header("location:weeklyOne.php?code=2&city=$_GET[city]");
+    }
+?>
+
+
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +29,29 @@
 
     <link rel="stylesheet" href="../lib/w3.css">
     <link rel="stylesheet" href="../lib/font-awesome.css">
+
+    
+
     
     <title>Document</title>
 </head>
 <body>
+
+<style>
+    canvas{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+</style>
+
+
+
+
+
+
+
+
     <!-- Header -->
     <nav class="navbar w3-top w3-container">
         <div style="flex: 1;">
@@ -38,62 +77,64 @@
         </form>
     </div>
 
+        <?php  
+        $temp3=0;
+        $temp9=0;
+        $rf=0;
+        $eva=0;
+        $windSpeed=0;
+        $humi=0;
+        $press=0;
+        $sunshine=0;
+        $i=0;
+        foreach ($data as $row){
+            $temp3+=$row['Temp3pm'];
+            $temp9+=$row['Temp9am'];
+            $rf+=$row['Rainfall'];
+            $eva+=$row['Evaporation'];
+            $windSpeed+=(($row['WindSpeed3pm']+$row['WindSpeed9am'])/2);
+            $humi+=(($row['Humidity3pm']+$row['Humidity9am'])/2);
+            $press+=(($row['Pressure3pm']+$row['Pressure9am'])/2);
+            $sunshine+=$row['Sunshine'];
+            $i++;
+        }
+        
+        
+        
+        
+        
+        ?>
+
 
         <div class="weather-box w3-card-4 w3-round-xxlarge">
             <div style="padding: 30px; margin-left: 30px;">
                 <h2 style="font-family: rokkitt;">WEEKLY AVERAGE</h2>
-                <h1 class="w3-center" style="font-family: rokkitt; font-size: 50px;">15.5˚C</h1>
-                <p>Rainfall : 0.8 mm</p>
-                <p>Evaporation : 1.6 mm</p>
-                <p>Sunshine : 2.6 hour</p>
-                <p>WindSpeed : 13 km/hr</p>
-                <p>Humidity : 75 %</p>
-                <p>Pressure : 1017.4 hpa </p>
+                <h1 class="w3-center" style="font-family: rokkitt; font-size: 50px;"><?php  echo ($temp3/$i+$temp9/$i)/2 ?> ˚C</h1>
+                <p>Rainfall : <?php echo $rf/$i  ?> mm</p>
+                <p>Evaporation : <?php echo $eva/$i  ?> mm</p>
+                <p>Sunshine : <?php echo $sunshine/$i  ?> hour</p>
+                <p>WindSpeed : <?php echo $windSpeed/$i  ?> km/hr</p>
+                <p>Humidity : <?php echo $humi/$i  ?> %</p>
+                <p>Pressure : <?php echo $press/$i  ?> hpa </p>
             </div>
             <div class="w3-center" style="flex:1;">
                 <img src="../assets/logo.png" width="200px" style="margin-top: 5rem; ">
-                <p style="font-size: 30px;">8.8˚C/ 15.9˚C</p>
+                <p style="font-size: 30px;"><?php  echo $temp9/$i ?> ˚C/ <?php  echo $temp3/$i ?> ˚C</p>
             </div>
         </div>
     
 
-        <!-- <div class="">
-            <form action="" class="w3-center search-d2">
-                <div class="w3-row ">
-                    <div class="w3-col s4 empty"></div>
-                    <div class=" ">
-                        <div >
-                            <select name="kota" id="kota" class="w3-input w3-padding">
-                                AMBIL DARI DB
-
-                                example 
-                                 <option value="id0">Adelaide</option>
-                                <option value="id1">Sydney</option>
-                            </select>
-                        </div>
-                        
-                        <div class="">
-                            <input type="date" name="from" id="from" class="dp">
-                        </div>
-                        <div style="margin-left: 0px !important;">
-                            <input type="date" name="to" id="to" class=" dp">
-                        </div>
-                    </div>
-                    <div class="w3-col s1 ">
-                        <input type="submit" value="SEARCH" class="btn-search-d2">
-
-                    </div>
-
-
-                </div>
-            </form> 
-
-
-
-                <br><br>
-              
-            <div>  -->
-        
+        <!-- helper chart -->
+        <?php  
+        foreach ($data as $row){
+        ?>
+        <p class="chartDate w3-hide"> <?php  echo $row['Date'] ?></p>
+        <p class="chartRainFall w3-hide"><?php echo $row['Rainfall']  ?></p>
+        <p class="chartMinTemp w3-hide"><?php echo $row['MinTemp']  ?></p>
+        <p class="chartMaxTemp w3-hide"><?php echo $row['MaxTemp']  ?></p>
+        <p class="chartSunshine w3-hide"><?php echo $row['Sunshine']  ?></p>
+        <p class="chartEvaporation w3-hide"><?php echo $row['Evaporation']  ?></p>
+        <?php  } ?>
 
                 <!-- buttonnya -->
                 <div class="accor-bar" style="margin-top:20px">
@@ -112,20 +153,21 @@
                         $i=0;
                         for ($i=$i;$i<4;$i++){?>
                             <div class="w3-col s2 w3-center back w3-card-4 w3-margin w3-round-xlarge">
-                                <p>Monday</p>
-                                <p>18</p>
                                 <?php  
-                                if(true){?>
+                                $dateArr=getdate(strtotime($data[$i]['Date']));
+                                ?>
+                                <p><?php  echo $dateArr['weekday']; ?></p>
+                                <p><?php  echo $dateArr['mday'];?></p>
+                                <?php  
+                                if($data[$i]['RainToday']==1){?>
                                     <img src="../assets/Logo.png" alt="" style="width:80px;">
-                                <?php  
+                                <?php
                                     }else{
-
-
-                                    
-                                        
-                                    }?>
-                                <h4>15.5 C</h4>
-                                <h5>8.8/15.9</h5>
+                                ?>
+                                 <img src="../assets/Rain.png" alt="" style="width:80px;">
+                                <?php }?>
+                                <h4><?php $avg=(($data[$i]['Temp9am']+$data[$i]['Temp3pm'])/2); echo $avg;  ?></h4>
+                                <h5><?php echo $data[$i]['MinTemp']?>/<?php echo $data[$i]['MaxTemp']  ?></h5>
 
                             </div>
 
@@ -135,23 +177,23 @@
                     <div class="w3-row">
                         <div class="w3-col s3 empty"></div>
                         <?php   
-                        for($i=$i;$i<7;$i++){
-                        ?>
+                        for($i=$i;$i<7;$i++){?>
                         <div class="w3-col s2 w3-center back w3-card-4 w3-margin w3-round-xlarge">
-                                <p>Monday</p>
-                                <p>18</p>
                                 <?php  
-                                if(true){?>
+                                $dateArr=getdate(strtotime($data[$i]['Date']));
+                                ?>
+                                <p><?php  echo $dateArr['weekday']; ?></p>
+                                <p><?php  echo $dateArr['mday'];?></p>
+                                <?php  
+                                if($data[$i]['RainToday']==1){?>
                                     <img src="../assets/Logo.png" alt="" style="width:80px;">
-                                <?php  
+                                <?php
                                     }else{
-
-
-                                    
-                                        
-                                    }?>
-                                <h4>15.5 C</h4>
-                                <h5>8.8/15.9</h5>
+                                ?>
+                                 <img src="../assets/Rain.png" alt="" style="width:80px;">
+                                <?php }?>
+                                <h4><?php $avg=(($data[$i]['Temp9am']+$data[$i]['Temp3pm'])/2); echo $avg;  ?></h4>
+                                <h5><?php echo $data[$i]['MinTemp']?>/<?php echo $data[$i]['MaxTemp']  ?></h5>
 
                             </div>
 
@@ -171,17 +213,24 @@
                 </button>
             </div>
             <div id="rainfall" class="w3-container w3-hide">
+                <div style="width: 50%;margin-left:25rem">
+                    <canvas  id="canvasRainfall"></canvas>
+                </div>
             </div>
             <br>
 
             <!-- Humidity -->
             <div class="accor-bar">
                 <button class="w3-btn w3-bar" onclick="showContent('humidity')">
-                    <span class="w3-left">Humidity </span>
+                    <span class="w3-left">Min- Max Temperature </span>
                     <i class="fa fa-angle-down w3-right"></i>
                 </button>
             </div>
             <div id="humidity" class="w3-container w3-hide">
+            <div style="width: 50%;margin-left:25rem">
+                    <canvas id="canvasMinMax"></canvas>
+                    <canvas id="canvasMaxMax"></canvas>
+                </div>
             </div>
             <br>
 
@@ -193,39 +242,56 @@
                 </button>
             </div>
             <div id="sunshine" class="w3-container w3-hide">
+                <div style="width: 50%;margin-left:25rem">
+                    <canvas id="canvasSunshine"></canvas>
+                </div>
             </div>
             <br>
 
             <!-- Preasure -->
             <div class="accor-bar">
                 <button class="w3-btn w3-bar" onclick="showContent('preasure')">
-                    <span class="w3-left">Preasure </span>
+                    <span class="w3-left">Evaporation </span>
                     <i class="fa fa-angle-down w3-right"></i>
                 </button>
             </div>
             <div id="preasure" class="w3-container w3-hide">
+                <div style="width: 50%;margin-left:25rem">
+                    <canvas id="canvasEvaporation"></canvas>
+                </div>
             </div>
             <br>
-
-
-
-
-
-
-
             </div>
         </div>
 
     </div>
+    <script src="../js/ChartBuilder.js"></script>
+    <script>
+        buildRainfall();
+        buildMinTemp();
+        buildMaxTemp();
+        buildSunshine();
+        buildEvaporation();
+    </script>
+
+<script type="text/javascript">
+        function showContent(id) {
+            var x = document.getElementById(id);
+            if(x.className.indexOf("w3-show") == -1){ 
+                x.className += " w3-show";
+            }
+            else{ 
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
 
 
 
-
-
+    
 
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
-</html>
