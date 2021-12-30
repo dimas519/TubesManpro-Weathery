@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="../style/dwm2.css">
     <link rel="stylesheet" href="../lib/w3.css">
     <link rel="stylesheet" href="../lib/font-awesome.css">
+    <script src="../js/Chart.bundle.js"></script>
+    <script src="../js/utils.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -247,12 +249,15 @@
 
     </div>
     <script src="../js/ChartBuilder.js"></script>
-    <script>
+    <script defer>
+
+
         buildRainfall();
         buildMinTemp();
         buildMaxTemp();
         buildSunshine();
         buildEvaporation();
+        
     </script>
 
 <script type="text/javascript">
