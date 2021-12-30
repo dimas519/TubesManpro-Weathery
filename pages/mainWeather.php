@@ -45,8 +45,8 @@ $data=$db->executeSelectQuery($query);
 
     <section class="main">
         <div class="container">
-            <form action="dailyOne.php" class="search" method="GET">
-                <select type="text" placeholder="  Search City" name="city">
+                <form action="dailyOne.php" class="monthly-pick" method="GET">
+                <select type="text" placeholder="  Search City" name="city" class="custom-sel">
                 <option  disabled selected value="-1">Search City</option>
                 <?php  
                 foreach($data as $kolom){
@@ -60,7 +60,7 @@ $data=$db->executeSelectQuery($query);
 
 
                 </select>
-                <button type="submit"><i class="fa fa-search"></i></button>
+                <button type="submit" class="btn-search"><i class="fa fa-search" style="color: white;"></i></button>
             </form>
         </div>
     </section>

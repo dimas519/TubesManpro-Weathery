@@ -69,8 +69,8 @@
     <!-- Searchbar -->
     <section class="main">
         <div class="container">
-            <form action="#" class="search" method="get" onchange="changeValue()">
-            <select type="text" placeholder="  Search City" name="city" id=dropDownCity>
+            <form action="#" class="monthly-pick" method="get" onchange="changeValue()">
+            <select type="text" placeholder="  Search City" name="city" id=dropDownCity class="custom-sel">
                 <option  disabled selected value="-1">Search City</option>
                 <?php  
                 foreach($data as $kolom){
@@ -94,13 +94,13 @@
             <div class="sec-navbar">
                 <ul class="nav-list-second">
                     <li class="nav-item">
-                        <a href="../pages/dailyOne.html" class="nav-link  second">One Day</a>
+                        <a href="<?php  echo "../pages/dailyOne.php?city=".$_GET['city'] ?>" class="nav-link  second">One Day</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../pages/weeklyOne.html" class="nav-link active second">Weekly</a>
+                        <a href="<?php  echo "../pages/weeklyOne.php?city=".$_GET['city'] ?>" class="nav-link active second">Weekly</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../pages/monthlyOne.html" class="nav-link second">Monthly</a>
+                        <a href="<?php  echo "../pages/monthlyOne.php?city=".$_GET['city'] ?>" class="nav-link second">Monthly</a>
                     </li>
                 </ul>
             </div>
@@ -111,9 +111,9 @@
         <div class="container">
 
             <form action="weeklyTwo.php" class="date-pick" method="get">
-                <input type="text" hidden name="city" value= <?php if(isset($_GET['city'])){echo $_GET['city'];}  ?> id="city-hidden">
-                <input type="date" name="from">
-                <input type="date" name="to" style="margin-left: 1.2rem;">
+                <input type="text" hidden name="city" value=" <?php if(isset($_GET['city'])){echo $_GET['city'];}  ?>" id="city-hidden">
+                <input type="date" name="from" id="fromDate" oninput="getDate()" min="2008-01-01" max="2017-12-31">
+                <input type="date" name="to" style="margin-left: 1.2rem;" id="toDate" min="2008-01-01" max="2017-12-31">
                 <button type="submit" class="btn-search">SEARCH</button>
             </form>
 
@@ -127,4 +127,16 @@
     <footer>
         
     </footer>
+
+    <script type="text/javascript">
+        function getDate(){
+            let input = document.getElementById("fromDate").value;
+            let date = new Date(input);
+            date.setDate(date.getDate() + 7);
+            let year = date.getFullYear();
+            let month = date.getMonth()+1;
+            let day = date.getDate()-1;
+            document.getElementById("toDate").value = year + "-" + month + "-"+ day;
+        }  
+    </script>
 </body>

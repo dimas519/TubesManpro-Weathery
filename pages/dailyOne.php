@@ -59,7 +59,7 @@
         <div style="flex: 1;  margin-top: 20px;">
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="main.html" class="active">Weather</a></li>
+                <li><a href="mainWeather.php" class="active">Weather</a></li>
                 <li><a href="prediction.html">Prediction</a></li>
             </ul>
         </div>
@@ -68,8 +68,8 @@
     <!-- Searchbar -->
     <section class="main">
         <div class="container">
-            <form action="#" class="search" method="get" onchange="changeValue()">
-            <select type="text" placeholder="  Search City" name="city" id=dropDownCity>
+            <form action="#" class="monthly-pick" method="get" onchange="changeValue()">
+            <select type="text" placeholder="  Search City" name="city" id=dropDownCity class="custom-sel">
                 <option  disabled selected value="-1">Search City</option>
                 <?php  
                 foreach($data as $kolom){
@@ -93,13 +93,13 @@
             <div class="sec-navbar">
                 <ul class="nav-list-second">
                     <li class="nav-item">
-                        <a href= <?php  echo "../pages/dailyOne.php?city=".$_GET['city'] ?> class="nav-link active second">One Day</a>
+                        <a href=" <?php  echo "../pages/dailyOne.php?city=".$_GET['city'] ?>" class="nav-link active second">One Day</a>
                     </li>
                     <li class="nav-item">
-                        <a href=<?php  echo "../pages/weeklyOne.php?city=".$_GET['city'] ?> class="nav-link second">Weekly</a>
+                        <a href="<?php  echo "../pages/weeklyOne.php?city=".$_GET['city'] ?>" class="nav-link second">Weekly</a>
                     </li>
                     <li class="nav-item">
-                        <a href=<?php  echo "../pages/monthlyOne.php?city=".$_GET['city'] ?> class="nav-link second">Monthly</a>
+                        <a href="<?php  echo "../pages/monthlyOne.php?city=".$_GET['city'] ?>" class="nav-link second">Monthly</a>
                     </li>
                 </ul>
             </div>
@@ -109,8 +109,8 @@
     <section class="daily">
         <div class="container">
             <form action="dailyTwo.php" class="date-pick" method="GET">
-                <input type="text" hidden name="city" value= <?php echo $_GET['city'];  ?> id="city-hidden">
-                <input type="date" name="date">
+                <input type="text" hidden name="city" value=" <?php echo $_GET['city'];  ?>" id="city-hidden">
+                <input type="date" name="date" min="2008-01-01" max="2017-12-31">
                 <button type="submit">SEARCH</button>
             </form>
         </div>
