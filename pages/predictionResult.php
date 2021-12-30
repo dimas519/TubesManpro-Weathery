@@ -34,8 +34,6 @@
         $jsonData->Temp9am=$_GET['Temp9am'];
     }
 
-
-
     $myJSON =base64_encode(json_encode($jsonData));
     
     $prediksiALL=shell_exec("cd ../PredictionLogic && python prediction.py $myJSON");
@@ -50,18 +48,9 @@
     $dataToday=$db->executeSelectQuery($queryToday)[0];
     $dataTomorow=$db->executeSelectQuery($queryTomorrow)[0];
 
-    
-    
-
 
     date_default_timezone_set("Asia/Jakarta");
-
-
-
-
 ?>
-
-
 
 
 
@@ -87,8 +76,8 @@
         <div style="flex: 1;  margin-top: 20px;">
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="">Weather</a></li>
-                <li><a href=""class="active">Prediction</a></li>
+                <li><a href="mainWeather.php">Weather</a></li>
+                <li><a href="mainPrediction.php"class="active">Prediction</a></li>
             </ul>
         </div>
     </nav>

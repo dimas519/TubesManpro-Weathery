@@ -18,10 +18,9 @@
     if(count($data)==0){
         header("location:dailyOne.php?code=2&city=$_GET[city]");
     }
-
-
-
 ?>
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,8 +47,8 @@
         <div style="flex: 1;  margin-top: 20px;">
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="main.html" class="active">Weather</a></li>
-                <li><a href="prediction.html">Prediction</a></li>
+                <li><a href="mainWeather.php" class="active">Weather</a></li>
+                <li><a href="mainPrediction.php">Prediction</a></li>
             </ul>
         </div>
     </nav>

@@ -1,4 +1,7 @@
 <?php  
+    if(!isset($_GET['city'])||$_GET['city']==-1 ){
+        header("location:mainPrediction.php");
+    }
 
     require_once '../Database/database.php';
     $query="SELECT * FROM kota";
@@ -32,8 +35,8 @@
         <div style="flex: 1;  margin-top: 20px;">
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="main.html">Weather</a></li>
-                <li><a href="#"class="active">Prediction</a></li>
+                <li><a href="mainWeather.php">Weather</a></li>
+                <li><a href="mainPrediction.php"class="active">Prediction</a></li>
             </ul>
         </div>
     </nav>
@@ -64,7 +67,7 @@
 
 
         <!-- sok aja pindahin -->
-        <select type="text" placeholder="  Search City" name="city" id=dropDownCity>
+       <!--  <select type="text" placeholder="  Search City" name="city" id=dropDownCity>
                 <option  disabled selected value="-1">Search City</option>
                 <?php  
                 foreach($data as $kolom){
@@ -77,7 +80,7 @@
                 ?>
 
 
-                </select>
+                </select> -->
 
 
 

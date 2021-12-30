@@ -16,9 +16,6 @@
 ?>
 
 
-
-
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,14 +23,10 @@
     <link rel="stylesheet" href="../style/global.css">
     <link rel="stylesheet" href="../style/index.css">
     <link rel="stylesheet" href="../style/dwm2.css">
-
     <link rel="stylesheet" href="../lib/w3.css">
     <link rel="stylesheet" href="../lib/font-awesome.css">
-
     <script src="../js/Chart.bundle.js"></script>
     <script src="../js/utils.js"></script>
-
-    
     <title>Document</title>
 </head>
 <body>
@@ -46,13 +39,6 @@
     }
 </style>
 
-
-
-
-
-
-
-
     <!-- Header -->
     <nav class="navbar w3-top w3-container">
         <div style="flex: 1;">
@@ -62,8 +48,8 @@
         <div style="flex: 1;  margin-top: 20px;">
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="main.html" class="active">Weather</a></li>
-                <li><a href="prediction.html">Prediction</a></li>
+                <li><a href="mainWeather.php" class="active">Weather</a></li>
+                <li><a href="mainPrediction.php">Prediction</a></li>
             </ul>
         </div>
     </nav>
@@ -98,11 +84,7 @@
             $press+=(($row['Pressure3pm']+$row['Pressure9am'])/2);
             $sunshine+=$row['Sunshine'];
             $i++;
-        }
-        
-        
-        
-        
+        } 
         
         ?>
 
@@ -110,17 +92,17 @@
         <div class="weather-box w3-card-4 w3-round-xxlarge">
             <div style="padding: 30px; margin-left: 30px;">
                 <h2 style="font-family: rokkitt;">WEEKLY AVERAGE</h2>
-                <h1 class="w3-center" style="font-family: rokkitt; font-size: 50px;"><?php  echo ($temp3/$i+$temp9/$i)/2 ?> ˚C</h1>
-                <p>Rainfall : <?php echo $rf/$i  ?> mm</p>
+                <h1 class="w3-center" style="font-family: rokkitt; font-size: 50px;"><?php  echo round((($temp3/$i+$temp9/$i)/2),2) ?> ˚C</h1>
+                <p>Rainfall : <?php echo round(($rf/$i),2)  ?> mm</p>
                 <p>Evaporation : <?php echo $eva/$i  ?> mm</p>
                 <p>Sunshine : <?php echo $sunshine/$i  ?> hour</p>
-                <p>WindSpeed : <?php echo $windSpeed/$i  ?> km/hr</p>
-                <p>Humidity : <?php echo $humi/$i  ?> %</p>
-                <p>Pressure : <?php echo $press/$i  ?> hpa </p>
+                <p>WindSpeed : <?php echo round(($windSpeed/$i),2)  ?> km/hr</p>
+                <p>Humidity : <?php echo round(($humi/$i),2)  ?> %</p>
+                <p>Pressure : <?php echo round(($press/$i),2)  ?> hpa </p>
             </div>
             <div class="w3-center" style="flex:1;">
                 <img src="../assets/logo.png" width="200px" style="margin-top: 5rem; ">
-                <p style="font-size: 30px;"><?php  echo $temp9/$i ?> ˚C/ <?php  echo $temp3/$i ?> ˚C</p>
+                <p style="font-size: 30px;"><?php  echo round(($temp9/$i),2) ?> ˚C/ <?php  echo round(($temp3/$i),2) ?> ˚C</p>
             </div>
         </div>
     
@@ -167,8 +149,8 @@
                                 ?>
                                  <img src="../assets/Rain.png" alt="" style="width:80px;">
                                 <?php }?>
-                                <h4><?php $avg=(($data[$i]['Temp9am']+$data[$i]['Temp3pm'])/2); echo $avg;  ?></h4>
-                                <h5><?php echo $data[$i]['MinTemp']?>/<?php echo $data[$i]['MaxTemp']  ?></h5>
+                                <h4><?php $avg=(($data[$i]['Temp9am']+$data[$i]['Temp3pm'])/2); echo $avg;  ?> ˚C</h4>
+                                <h5><?php echo $data[$i]['MinTemp']?>˚C / <?php echo $data[$i]['MaxTemp']  ?>˚C</h5>
 
                             </div>
 
@@ -193,8 +175,8 @@
                                 ?>
                                  <img src="../assets/Rain.png" alt="" style="width:80px;">
                                 <?php }?>
-                                <h4><?php $avg=(($data[$i]['Temp9am']+$data[$i]['Temp3pm'])/2); echo $avg;  ?></h4>
-                                <h5><?php echo $data[$i]['MinTemp']?>/<?php echo $data[$i]['MaxTemp']  ?></h5>
+                                <h4><?php $avg=(($data[$i]['Temp9am']+$data[$i]['Temp3pm'])/2); echo $avg;  ?> ˚C</h4>
+                                <h5><?php echo $data[$i]['MinTemp']?>˚C / <?php echo $data[$i]['MaxTemp']  ?>˚C</h5>
 
                             </div>
 
