@@ -1,3 +1,5 @@
+
+
 function getArrData(data){
     let date=document.getElementsByClassName(data)
     
