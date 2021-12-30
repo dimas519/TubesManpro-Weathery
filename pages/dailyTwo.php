@@ -1,5 +1,5 @@
 <?php  
-    if(!isset($_POST['city'])||!isset($_POST['date']) ){
+    if(!isset($_GET['city'])||!isset($_GET['date']) ){
         header("location:dailyOne.php?code=1");
     }
 
@@ -9,14 +9,14 @@
 
 
 
-    $query="SELECT * FROM prediksi WHERE Location = $_POST[city] AND Date ="." '$_POST[date]' ";
+    $query="SELECT * FROM prediksi WHERE Location = $_GET[city] AND Date ="." '$_GET[date]' ";
     
 
     $db=new DB();
-    $data=$db->executeSelectQuery($query.length);
+    $data=$db->executeSelectQuery($query);
     
     if(count($data)==0){
-        header("location:dailyOne.php?code=2");
+        header("location:dailyOne.php?code=2&city=$_GET[city]");
     }
 
 

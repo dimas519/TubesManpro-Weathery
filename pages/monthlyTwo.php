@@ -1,7 +1,7 @@
 
 <?php  
     if(!isset($_GET['city'])||$_GET['city']==-1 || !isset($_GET['month']) || !isset($_GET['year']) ){
-        header("location:main.php");
+        header("location:monthluOne.php?code=1");
     }
 
 
@@ -10,6 +10,10 @@
     $db=new DB();
     $data=$db->executeSelectQuery($query);
 
+
+    if(count($data)==0){
+        header("location:monthlyOne.php?code=2&city=$_GET[city]");
+    }
 
 ?>
 
@@ -158,17 +162,17 @@
     <div class="weather-box w3-card-4 w3-round-xxlarge">
         <div style="padding: 30px; margin-left: 30px;">
             <h2 style="font-family: rokkitt;">MONTHLY AVERAGE</h2>
-            <h1 class="w3-center" style="font-family: rokkitt; font-size: 50px;"><?php  echo ($temp3/$i+$temp9/$i)/2 ?> ˚C</h1>
-                <p>Rainfall : <?php echo $rf/$i  ?> mm</p>
+            <h1 class="w3-center" style="font-family: rokkitt; font-size: 50px;"><?php  echo round((($temp3/$i+$temp9/$i)/2),2) ?> ˚C</h1>
+                <p>Rainfall : <?php echo round(($rf/$i),2)  ?> mm</p>
                 <p>Evaporation : <?php echo $eva/$i  ?> mm</p>
                 <p>Sunshine : <?php echo $sunshine/$i  ?> hour</p>
-                <p>WindSpeed : <?php echo $windSpeed/$i  ?> km/hr</p>
-                <p>Humidity : <?php echo $humi/$i  ?> %</p>
-                <p>Pressure : <?php echo $press/$i  ?> hpa </p>
+                <p>WindSpeed : <?php echo round(($windSpeed/$i),2)  ?> km/hr</p>
+                <p>Humidity : <?php echo round(($humi/$i),2)  ?> %</p>
+                <p>Pressure : <?php echo round(($press/$i),2)  ?> hpa </p>
         </div>
             <div class="w3-center" style="flex:1;">
                 <img src="../assets/logo.png" width="200px" style="margin-top: 5rem; ">
-                <p style="font-size: 30px;"><?php  echo $temp9/$i ?> ˚C/ <?php  echo $temp3/$i ?> ˚C</p>
+                <p style="font-size: 30px;"><?php  echo round(($temp9/$i),2) ?> ˚C/ <?php  echo round(($temp3/$i),2) ?> ˚C</p>
             </div>
     </div>
 
@@ -187,14 +191,14 @@
                 $year = $_GET['year'];     
                 $monthName = date('F', mktime(0, 0, 0, $month, 10));
                 echo '<div class="calendar-title">'. $monthName .' '. $year .'</div>';
-                echo create_calendar($month,$year);
+                echo create_calendar($month,$year,$data);
             }
             else{
                 echo '<div class="calendar-title">February 2011</div>';
-                echo create_calendar(02,2011);
+                echo create_calendar(02,2011,null);
             }
 
-            function create_calendar($month,$year){
+            function create_calendar($month,$year,$data){
                 $calendar = '<table class="calendar-table">';
                 $days = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
                 $calendar .= '<tr><th>' .implode('</th><th>', $days).'</th></tr>';
@@ -210,10 +214,19 @@
                 }
 
                 for($nth_day=1; $nth_day <= $all_days; $nth_day++){ //print kotak tanggal
-                    $calendar .= '<td><div class="calendar-date"> <b>'. $nth_day  . '</b> </div>
-                                    <img src="../assets/Logo.png" class="calendar-image">
-                                    <span class="calendar-temp">12.5˚C / 20.8˚C</span>
-                                    </td>';
+                    $calendar .= '<td><div class="calendar-date"> <b>'. $nth_day  . '</b> </div>';
+
+                    if($data[$nth_day-1]['RainToday']==0){
+                        $calendar .= '<img src="../assets/Logo.png" class="calendar-image">';
+                    }else{
+                        $calendar .= '<img src="../assets/Rain.png" class="calendar-image">';
+                    }
+                    $minTemp=$data[$nth_day-1]['MinTemp'];
+                    $maxTemp=$data[$nth_day-1]['MaxTemp'];
+                    $calendar .= " <span class='calendar-temp'> $minTemp ˚C /  $maxTemp ˚C</span></td>";
+
+                
+
                     if($day == 6){
                         $calendar.= '</tr>';
                         if($date != $all_days){

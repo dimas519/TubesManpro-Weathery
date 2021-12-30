@@ -1,6 +1,20 @@
 <?php  
     if(!isset($_GET['city'])||$_GET['city']==-1 ){
        // header("location:main.php");
+    }else if(isset($_GET['code'])){
+        if($_GET['code']==1){
+
+            // kalau mau ganti ganti aja
+            echo '
+        <Script>
+            alert("Silahkan Isi tanggal dan kota dahulu");
+        </Script>';
+        }else if($_GET['code']==2){
+            echo '
+            <script>
+                alert("Tanggal yang anda tidak satu minggu");
+            </script>';
+        }
     }
 
 
@@ -97,7 +111,7 @@
         <div class="container">
 
             <form action="weeklyTwo.php" class="date-pick" method="get">
-                <input type="text" hidden name="city" value= <?php echo $_GET['city'];  ?> id="city-hidden">
+                <input type="text" hidden name="city" value= <?php if(isset($_GET['city'])){echo $_GET['city'];}  ?> id="city-hidden">
                 <input type="date" name="from">
                 <input type="date" name="to" style="margin-left: 1.2rem;">
                 <button type="submit" class="btn-search">SEARCH</button>

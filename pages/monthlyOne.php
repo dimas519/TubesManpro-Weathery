@@ -1,6 +1,20 @@
 <?php  
     if(!isset($_GET['city'])||$_GET['city']==-1 ){
         header("location:main.php");
+    }else if(isset($_GET['code'])){
+        if($_GET['code']==1){
+
+            // kalau mau ganti ganti aja
+            echo "
+        <Script>
+            alert('Silahkan Isi tanggal dan kota dahulu')
+        </Script>";
+        }else if($_GET['code']==2){
+            echo "
+            <Script>
+                alert('Tanggal yang anda pilih tidak ditemukan')
+            </Script>";
+        }
     }
 
 

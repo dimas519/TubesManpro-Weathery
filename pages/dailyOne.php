@@ -5,15 +5,15 @@
         if($_GET['code']==1){
 
             // kalau mau ganti ganti aja
-            echo "
-        <Script>
-            alert('Silahkan Isi tanggal dan kota dahulu')
-        </Script>";
+            echo '
+        <script>
+            alert("Silahkan Isi tanggal dan kota dahulu")
+        </script>';
         }else if($_GET['code']==2){
-            echo "
-            <Script>
-                alert('Tanggal yang anda pilih tidak ditemukan')
-            </Script>";
+            echo '
+            <script>
+                alert("Tanggal yang anda pilih tidak ditemukan")
+            </script>';
         }
     }
 
@@ -108,7 +108,7 @@
     <!-- Date picker Form -->
     <section class="daily">
         <div class="container">
-            <form action="dailyTwo.php" class="date-pick" method="POST">
+            <form action="dailyTwo.php" class="date-pick" method="GET">
                 <input type="text" hidden name="city" value= <?php echo $_GET['city'];  ?> id="city-hidden">
                 <input type="date" name="date">
                 <button type="submit">SEARCH</button>
@@ -124,8 +124,6 @@
 
     </footer>
 
-<Script>
-    alert("")
-</Script>
+
 
 </body>

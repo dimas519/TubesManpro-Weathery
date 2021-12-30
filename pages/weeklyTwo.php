@@ -1,6 +1,6 @@
 <?php  
     if(!isset($_GET['city'])||$_GET['city']==-1 ||!isset($_GET['from']) ||!isset($_GET['to'])   ){
-       // header("location:main.php");
+       header("location:weeklyOne.php?code=1");
     }
 
 
@@ -10,7 +10,9 @@
     $db=new DB();
     $data=$db->executeSelectQuery($query);
 
-
+    if(count($data)<7){
+        header("location:weeklyOne.php?code=2&city=$_GET[city]");
+    }
 ?>
 
 
