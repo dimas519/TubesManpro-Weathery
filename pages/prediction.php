@@ -83,32 +83,32 @@
             <div class="border_box">
                 <div class="selected_content w3-hide" id="rainfallRes">
                     <span>Morning Humidity</span>
-                    <input type="text" name=Humidity9am value=-1>
+                    <input type="text" name=Humidity9am value=-1  id="rainfallInput" >
                     <a href="#" class="remo" id="remo1">remove</a>
                 </div>
                 <div class="selected_content w3-hide" id="evaporationRes">
                     <span>Morning Cloud</span>
-                    <input type="text" name=Cloud9am value=-1>
+                    <input type="text" name=Cloud9am value=-1 id="evaporationInput">
                     <a href="#" class="remo" id="remo2">remove</a>
                 </div>
                 <div class="selected_content w3-hide" id="sunshineRes">
                     <span>Morning Pressure</span>
-                    <input type="text" name="Pressure9am" value=-1>
+                    <input type="text" name="Pressure9am" value=-1  id="sunshineInput">
                     <a href="#" class="remo" id="remo3">remove</a>
                 </div>
-                <div class="selected_content w3-hide" id="windspeedRes">
+                <div class="selected_content w3-hide" id="windspeedRes" id="windInput">
                     <span>Evaporation</span>
-                    <input type="text" name="Evaporation" value =-1>
+                    <input type="text" name="Evaporation" value =-1  id="windInput">
                     <a href="#" class="remo" id="remo4">remove</a>
                 </div>
                 <div class="selected_content w3-hide" id="humidityRes">
                     <span>Morning Wind Speed</span>
-                    <input type="text" name="WindSpeed9am" value=-1>
+                    <input type="text" name="WindSpeed9am" value=-1 id="humidityInput">
                     <a href="#" class="remo" id="remo5">remove</a>
                 </div>
                 <div class="selected_content w3-hide" id="pressureRes">
                     <span>Morning Temperature</span>
-                    <input type="text" name="Temp9am" value=-1>
+                    <input type="text" name="Temp9am" value=-1 id="pressureInput">
                     <a href="#" class="remo" id="remo6">remove</a>
                 </div>
             </div>
