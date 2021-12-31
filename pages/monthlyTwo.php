@@ -31,7 +31,6 @@
     <link rel="stylesheet" href="../style/dwm2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../js/Chart.bundle.js"></script>
-    <script src="../js/utils.js"></script>
 
     <style type="text/css">
         .calendar-table {
