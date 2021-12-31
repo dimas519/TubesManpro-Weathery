@@ -23,29 +23,34 @@ function buildRainfall(){
     let title=buildDayArr();
 
 
-    let colors=[
-        window.chartColors.blue,
-        window.chartColors.red,
-        window.chartColors.grey,  
-     ]
+
 
 
      
      let myChart ={
         type: 'line',
         data: {
+            labels:title,
             datasets:[{
+                label: 'Rainfall',
                 data : data,
-                backgroundColor: colors,
+                backgroundColor: "rgb(255, 159, 64)",
+                borderWidth :5,
+                borderColor: "rgb(0, 0, 0)",
+                fill:false,
+                lineTension:0
             }],
-            labels:title
+            
+
         },
      options:{
-         
+
          title:{
             display:true,
-            text:'Rainfall Line Chart'
+            text:'Rainfall Line Chart',
+        
         },
+        
         responsive : true
      } ,
     };
@@ -65,11 +70,7 @@ function buildMinTemp(){
     let title=buildDayArr();
 
 
-    let colors=[
-        window.chartColors.blue,
-        window.chartColors.red,
-        window.chartColors.grey,  
-     ]
+
 
 
      
@@ -77,8 +78,13 @@ function buildMinTemp(){
         type: 'line' ,
         data: {
             datasets:[{
+                label: 'Min Temperature',
                 data : data,
-                backgroundColor: colors,
+                backgroundColor: "rgb(255, 159, 64)",
+                borderWidth :5,
+                borderColor: "rgb(0, 0, 0)",
+                fill:false,
+                lineTension:0
             }],
             labels:title
         },
@@ -107,11 +113,7 @@ function buildMaxTemp(){
     let title=buildDayArr();
 
 
-    let colors=[
-        window.chartColors.blue,
-        window.chartColors.red,
-        window.chartColors.grey,  
-     ]
+
 
 
      
@@ -119,8 +121,13 @@ function buildMaxTemp(){
         type: 'line' ,
         data: {
             datasets:[{
+                label: 'Max Temperature',
                 data : data,
-                backgroundColor: colors,
+                backgroundColor: "rgb(255, 159, 64)",
+                borderWidth :5,
+                borderColor: "rgb(0, 0, 0)",
+                fill:false,
+                lineTension:0
             }],
             labels:title
         },
@@ -144,11 +151,6 @@ function buildSunshine(){
     let title=buildDayArr();
 
 
-    let colors=[
-        window.chartColors.blue,
-        window.chartColors.red,
-        window.chartColors.grey,  
-     ]
 
 
      
@@ -156,8 +158,13 @@ function buildSunshine(){
         type: 'line' ,
         data: {
             datasets:[{
+                label: 'Sunshine',
                 data : data,
-                backgroundColor: colors,
+                backgroundColor: "rgb(255, 159, 64)",
+                borderWidth :5,
+                borderColor: "rgb(0, 0, 0)",
+                fill:false,
+                lineTension:0
             }],
             labels:title
         },
@@ -183,11 +190,7 @@ function buildEvaporation(){
     let title=buildDayArr();
 
 
-    let colors=[
-        window.chartColors.blue,
-        window.chartColors.red,
-        window.chartColors.grey,  
-     ]
+
 
 
      
@@ -195,8 +198,13 @@ function buildEvaporation(){
         type: 'line' ,
         data: {
             datasets:[{
+                label: 'Evaporation',
                 data : data,
-                backgroundColor: colors,
+                backgroundColor: "rgb(255, 159, 64)",
+                borderWidth :5,
+                borderColor: "rgb(0, 0, 0)",
+                fill:false,
+                lineTension:0
             }],
             labels:title
         },
