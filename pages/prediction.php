@@ -52,11 +52,17 @@
             </button>
             <div class="w3-bar-block w3-border w3-hide" id="drop_content">
                 <a href="#" class="drop_fill" id="rainfall">Rainfall</a>
+                <hr>
                 <a href="#" class="drop_fill" id="evaporation">Evaporation</a>
+                <hr>
                 <a href="#" class="drop_fill" id="sunshine">Sunshine</a>
+                <hr>
                 <a href="#" class="drop_fill" id="windspeed">Wind Speed</a>
+                <hr>
                 <a href="#" class="drop_fill" id="humidity">Humidity</a>
+                <hr>
                 <a href="#" class="drop_fill" id="pressure">Pressure</a>
+                <hr>
                 <a href="#" class="drop_fill" id="recommend">Recommendation</a>
             </div>
         </div>
