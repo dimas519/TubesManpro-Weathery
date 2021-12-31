@@ -67,22 +67,14 @@
 
 
         <!-- sok aja pindahin -->
-       <!--  <select type="text" placeholder="  Search City" name="city" id=dropDownCity>
+         <!-- <select type="text" placeholder="  Search City" name="city" id=dropDownCity> 
                 <option  disabled selected value="-1">Search City</option>
-                <?php  
-                foreach($data as $kolom){
-                   ?>
-                <option value= <?php  echo $kolom['IdKota'];    ?> > <?php echo $kolom['NamaKota'];  ?>  </option>
-            
-
-                <?php 
-                }         
-                ?>
 
 
-                </select> -->
 
+                </select>  -->
 
+            <input type="text" hidden value= "<?php echo $_GET['city'] ?>" name="city" >
 
 
 
