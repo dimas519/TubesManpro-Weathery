@@ -6,10 +6,12 @@
 
     require_once '../Database/database.php';
     require_once '../Database/converter.php';
-    $query="SELECT * FROM prediksi WHERE Location=$_GET[city] and Date BETWEEN "." '$_GET[from]' AND "." '$_GET[to]' ";
+    $query="SELECT * FROM prediksi WHERE Location=$_GET[city] and Date BETWEEN  '$_GET[from]' AND  '$_GET[to]' ORDER BY Date ASC ";
+    $queryKota="SELECT * FROM kota";
+
     $db=new DB();
     $data=$db->executeSelectQuery($query);
-
+    $kota=$db->executeSelectQuery($queryKota);
     if(count($data)<7){
         header("location:weeklyOne.php?code=2&city=$_GET[city]");
     }
@@ -22,6 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/global.css">
     <link rel="stylesheet" href="../style/index.css">
+    <link rel="stylesheet" href="../style/dwm.css">
     <link rel="stylesheet" href="../style/dwm2.css">
     <link rel="stylesheet" href="../lib/w3.css">
     <link rel="stylesheet" href="../lib/font-awesome.css">
@@ -54,11 +57,21 @@
     </nav>
 
     <div class="container w3-center" style="margin-top: 10%;">
-        <form action="#" class="search-d2" method="get">
-            <input type="text" placeholder="  Search City" name="search-city">
-            <button type="button" class="bkn-btn"><i class="fa fa-map-marker"></i></button>
-            <input type="date" name="date-picker-daily" class="dp">
-            <input type="date" name="date-picker-daily" class="dp">
+        <form action="#" class="monthly-pick search-d2" method="get">
+        <select type="text" placeholder="  Search City" name="city" id=dropDownCity class="custom-sel" style="padding: 0.7rem 0;">
+                <option  disabled selected value="-1">Search City</option>
+                <?php  
+                foreach($kota as $kolom){
+                   ?>
+                <option value= <?php  $id=$kolom['IdKota']; echo $id; if($id==$_GET['city']){echo" Selected";};    ?> > <?php echo $kolom['NamaKota'];  ?>  </option>
+            
+
+                <?php 
+                }         
+                ?>
+                </select>
+            <input type="date" name="from" class="dp" value="<?php echo $_GET['from']?>">
+            <input type="date" name="to" class="dp" value="<?php echo $_GET['to']?>">
             <button type="submit" class="btn-search-d2">SEARCH</button>
         </form>
     </div>
@@ -141,7 +154,7 @@
                                 <p><?php  echo $dateArr['weekday']; ?></p>
                                 <p><?php  echo $dateArr['mday'];?></p>
                                 <?php  
-                                if($data[$i]['RainToday']==1){?>
+                                if($data[$i]['RainToday']==0){?>
                                     <img src="../assets/Logo.png" alt="" style="width:80px;">
                                 <?php
                                     }else{
@@ -167,7 +180,7 @@
                                 <p><?php  echo $dateArr['weekday']; ?></p>
                                 <p><?php  echo $dateArr['mday'];?></p>
                                 <?php  
-                                if($data[$i]['RainToday']==1){?>
+                                if($data[$i]['RainToday']==0){?>
                                     <img src="../assets/Logo.png" alt="" style="width:80px;">
                                 <?php
                                     }else{

@@ -70,7 +70,7 @@
                 <?php  
                 foreach($data as $kolom){
                    ?>
-                <option value= <?php  $id=$kolom['IdKota']; echo $id; if($id==$_GET['city']){echo" Selected";};    ?> > <?php echo $kolom['NamaKota'];  ?>  </option>
+            <option value="<?php echo $kolom['IdKota'];?>"  <?php  if($kolom['IdKota']==$_GET['city']){echo "selected";} ?>  > <?php echo $kolom['NamaKota'];  ?>  </option>
             
 
                 <?php 
@@ -105,8 +105,8 @@
     <!-- Date picker Form -->
     <section class="daily">
         <div class="container">
-            <form action="monthlyTwo.php" class="monthly-pick" method="get">
-                <input type="text" hidden name="city" value=" <?php echo $_GET['city'];  ?>" id="city-hidden">
+            <form action="monthlyTwo.php" class="monthly-pick" method="GET">
+                <input type="text" hidden name="city" value="<?php echo $_GET['city'];?>" id="city-hidden">
                 <select name="month" id="dd_month" class="custom-sel" >
                     <option disabled selected> Month </option>
                     <option value="1">January</option>
