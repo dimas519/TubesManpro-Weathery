@@ -33,8 +33,8 @@ $data=$db->executeSelectQuery($query);
         <div style="flex: 1;  margin-top: 20px;">
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="mainWeather.php" class="active">Weather</a></li>
-                <li><a href="#">Prediction</a></li>
+                <li><a href="mainWeather.php">Weather</a></li>
+                <li><a href="#" class="active">Prediction</a></li>
             </ul>
         </div>
     </nav>
