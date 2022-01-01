@@ -333,7 +333,7 @@
                 </div>
             </div>
     <br>
-        <?php  var_dump($data) ?>
+
     </div>
         </div>
 

@@ -8,10 +8,9 @@
     $db=new DB();
     $data=$db->executeSelectQuery($query);
 
-
-
-
 ?>
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,16 +46,22 @@
             <button onclick="OnClick()" class="dropbutton">
                 
                 <span> Select Parameter! </span>
-                <i class="fa fa-chevron-down"></i> 
+                <i class="fa fa-chevron-down" style="color: white;"></i> 
             
             </button>
             <div class="w3-bar-block w3-border w3-hide" id="drop_content">
                 <a href="#" class="drop_fill" id="rainfall">Rainfall</a>
+                <hr>
                 <a href="#" class="drop_fill" id="evaporation">Evaporation</a>
+                <hr>
                 <a href="#" class="drop_fill" id="sunshine">Sunshine</a>
+                <hr>
                 <a href="#" class="drop_fill" id="windspeed">Wind Speed</a>
+                <hr>
                 <a href="#" class="drop_fill" id="humidity">Humidity</a>
+                <hr>
                 <a href="#" class="drop_fill" id="pressure">Pressure</a>
+                <hr>
                 <a href="#" class="drop_fill" id="recommend">Recommendation</a>
             </div>
         </div>
@@ -65,20 +70,7 @@
     <section class="selected_param">
         <form action="predictionResult.php" method="GET" id="form-predict">
 
-
-        <!-- sok aja pindahin -->
-         <!-- <select type="text" placeholder="  Search City" name="city" id=dropDownCity> 
-                <option  disabled selected value="-1">Search City</option>
-
-
-
-                </select>  -->
-
             <input type="text" hidden value= "<?php echo $_GET['city'] ?>" name="city" >
-
-
-
-
 
             <div class="border_box">
                 <div class="selected_content w3-hide" id="rainfallRes">
@@ -139,5 +131,4 @@
 
     </script>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
 </body>
