@@ -115,7 +115,7 @@ section {
 }
 
 .search button{
-    transform: translate(-200%, -10%);
+    transform: translate(-300%, -5%);
     border: none;
     background-color: #F4EBE1;
 }
@@ -222,7 +222,6 @@ section {
     background-color: #F4EBE1;
     color: #555154;
     font-weight: 500px;
-    
 }
 
 .btn-search{
