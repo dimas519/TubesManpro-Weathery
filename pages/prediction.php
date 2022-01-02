@@ -62,8 +62,6 @@
                 <a href="#" class="drop_fill" id="humidity">Humidity</a>
                 <hr>
                 <a href="#" class="drop_fill" id="pressure">Pressure</a>
-                <hr>
-                <a href="#" class="drop_fill" id="recommend">Recommendation</a>
             </div>
         </div>
     </section>
