@@ -57,6 +57,7 @@ html{
     padding-top: 1rem;
     padding-bottom: 0.6rem;
     font-size: large;
+    text-decoration: none;
 }
 
 .addbutton{

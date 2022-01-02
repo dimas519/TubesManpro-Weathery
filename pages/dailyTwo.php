@@ -10,11 +10,11 @@
 
 
     $query="SELECT * FROM prediksi WHERE Location = $_GET[city] AND Date ="." '$_GET[date]' ";
-    
+    $queryKota="SELECT * FROM kota";
 
     $db=new DB();
     $data=$db->executeSelectQuery($query);
-    
+    $kota=$db->executeSelectQuery($queryKota);
     if(count($data)==0){
         header("location:dailyOne.php?code=2&city=$_GET[city]");
     }
@@ -56,10 +56,23 @@
     <!-- Searchbar -->
     <section class="main">
         <div class="container">
-            <form action="#" class="search-d2" method="get">
-                <input type="text" placeholder="  Search City" name="search-city">
-                <button type="button" class="bkn-btn"><i class="fa fa-map-marker"></i></button>
-                <input type="date" name="date-picker-daily" class="dp">
+            <form action="#" class="monthly-pick search-d2" method="get">
+
+
+            <select type="text" placeholder="  Search City" name="city" id=dropDownCity class="custom-sel" style="padding: 0.7rem 0;">
+                <option  disabled selected value="-1">Search City</option>
+                <?php  
+                foreach($kota as $kolom){
+                   ?>
+                <option value= <?php  $id=$kolom['IdKota']; echo $id; if($id==$_GET['city']){echo" Selected";};    ?> > <?php echo $kolom['NamaKota'];  ?>  </option>
+            
+
+                <?php 
+                }         
+                ?>
+                </select>
+
+                <input type="date" name="date" class="dp" value="<?php echo $_GET['date'];?>">
                 <button type="submit" class="btn-search-d2">SEARCH</button>
             </form>
         </div>

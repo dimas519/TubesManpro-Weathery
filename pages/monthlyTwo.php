@@ -6,10 +6,11 @@
 
 
     require_once '../Database/database.php';
-    $query="SELECT * FROM prediksi WHERE Date LIKE '$_GET[year]-$_GET[month]-%%' AND Location=$_GET[city]";
+    $query="SELECT * FROM prediksi WHERE Date >= '$_GET[year]-$_GET[month]-01' AND Date <= '$_GET[year]-$_GET[month]-31'  AND Location=$_GET[city] ORDER BY Date ASC";
+    $queryKota="SELECT * FROM kota";
     $db=new DB();
     $data=$db->executeSelectQuery($query);
-
+    $kota=$db->executeSelectQuery($queryKota);
 
     if(count($data)==0){
         header("location:monthlyOne.php?code=2&city=$_GET[city]");
@@ -95,37 +96,48 @@
 
     <section class="main" >
         <div class="container">
-            <form action="monthlyTwo.php" class="search-d2" method="get">
-                <input type="text" placeholder="  Search City" name="search-city" style="margin: 5px;">
-                <button type="button" class="bkn-btn"><i class="fa fa-map-marker"></i></button>
+            <form action="monthlyTwo.php" class="monthly-pick search-d2" method="get">
+             
+            <select type="text" placeholder="  Search City" name="city" id=dropDownCity class="custom-sel" style="padding: 0.7rem 0;">
+                <option  disabled selected value="-1">Search City</option>
+                <?php  
+                foreach($kota as $kolom){
+                   ?>
+                <option value= <?php  $id=$kolom['IdKota']; echo $id; if($id==$_GET['city']){echo" Selected";};    ?> > <?php echo $kolom['NamaKota'];  ?>  </option>
+            
+
+                <?php 
+                }         
+                ?>
+                </select>
                 <form action="monthlyTwo.php" class="monthly-pick" method="get">
                     <select name="month" id="dd_month" class="custom-sel" style="margin: 5px;" >
                         <option disabled selected> Month </option>
-                        <option value="1">January</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4">April</option>
-                        <option value="5">May</option>
-                        <option value="6">June</option>
-                        <option value="7">July</option>
-                        <option value="8">August</option>
-                        <option value="9">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
+                        <option value="1" <?php  if($_GET['month']==1){echo "selected";} ?>>January</option>
+                        <option value="2" <?php  if($_GET['month']==2){echo "selected";} ?>>February</option>
+                        <option value="3" <?php  if($_GET['month']==3){echo "selected";} ?>>March</option>
+                        <option value="4" <?php  if($_GET['month']==4){echo "selected";} ?>>April</option>
+                        <option value="5" <?php  if($_GET['month']==5){echo "selected";} ?>>May</option>
+                        <option value="6" <?php  if($_GET['month']==6){echo "selected";} ?>>June</option>
+                        <option value="7" <?php  if($_GET['month']==7){echo "selected";} ?>>July</option>
+                        <option value="8" <?php  if($_GET['month']==8){echo "selected";} ?>>August</option>
+                        <option value="9" <?php  if($_GET['month']==9){echo "selected";} ?>>September</option>
+                        <option value="10" <?php  if($_GET['month']==10){echo "selected";} ?>>October</option>
+                        <option value="11" <?php  if($_GET['month']==11){echo "selected";} ?>>November</option>
+                        <option value="12" <?php  if($_GET['month']==12){echo "selected";} ?>>December</option>
                     </select>
                     <select name="year" id="dd_year" class="custom-sel" style="margin: 5px;">
                         <option disabled selected> Year </option>
-                        <option value="2008">2008</option>
-                        <option value="2009">2009</option>
-                        <option value="2010">2010</option>
-                        <option value="2011">2011</option>
-                        <option value="2012">2012</option>
-                        <option value="2013">2013</option>
-                        <option value="2014">2014</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
+                        <option value="2008" <?php  if($_GET['year']==2008){echo "selected";} ?>>2008</option>
+                        <option value="2009" <?php  if($_GET['year']==2009){echo "selected";} ?>>2009</option>
+                        <option value="2010" <?php  if($_GET['year']==2010){echo "selected";} ?>>2010</option>
+                        <option value="2011" <?php  if($_GET['year']==2011){echo "selected";} ?>>2011</option>
+                        <option value="2012" <?php  if($_GET['year']==2012){echo "selected";} ?>>2012</option>
+                        <option value="2013" <?php  if($_GET['year']==2013){echo "selected";} ?>>2013</option>
+                        <option value="2014" <?php  if($_GET['year']==2014){echo "selected";} ?>>2014</option>
+                        <option value="2015" <?php  if($_GET['year']==2015){echo "selected";} ?>>2015</option>
+                        <option value="2016" <?php  if($_GET['year']==2016){echo "selected";} ?>>2016</option>
+                        <option value="2017" <?php  if($_GET['year']==2017){echo "selected";} ?>>2017</option>
                     </select>
                 <button type="submit" class="btn-search-d2" style="margin: 5px;">SEARCH</button>
                 </form>
