@@ -50,19 +50,17 @@
             
             </button>
             <div class="w3-bar-block w3-border w3-hide" id="drop_content">
-                <a href="#" class="drop_fill" id="rainfall">Rainfall</a>
+                <a href="#" class="drop_fill" id="rainfall">Morning Humidity</a>
                 <hr>
-                <a href="#" class="drop_fill" id="evaporation">Evaporation</a>
+                <a href="#" class="drop_fill" id="evaporation">Morning Cloud</a>
                 <hr>
-                <a href="#" class="drop_fill" id="sunshine">Sunshine</a>
+                <a href="#" class="drop_fill" id="sunshine">Morning Pressure</a>
                 <hr>
-                <a href="#" class="drop_fill" id="windspeed">Wind Speed</a>
+                <a href="#" class="drop_fill" id="windspeed">Evaporation</a>
                 <hr>
-                <a href="#" class="drop_fill" id="humidity">Humidity</a>
+                <a href="#" class="drop_fill" id="humidity">Morning Wind Speed</a>
                 <hr>
-                <a href="#" class="drop_fill" id="pressure">Pressure</a>
-                <hr>
-                <a href="#" class="drop_fill" id="recommend">Recommendation</a>
+                <a href="#" class="drop_fill" id="pressure">Morning Temperature</a>
             </div>
         </div>
     </section>
@@ -75,7 +73,7 @@
             <div class="border_box">
                 <div class="selected_content w3-hide" id="rainfallRes">
                     <span>Morning Humidity</span>
-                    <input type="text" name=Humidity9am value=-1  id="rainfallInput" >
+                    <input type="text" name=Humidity9am value=-1  id="rainfallInput" required>
                     <a href="#" class="remo" id="remo1">remove</a>
                 </div>
                 <div class="selected_content w3-hide" id="evaporationRes">
@@ -113,7 +111,7 @@
     </section>
 
     <section class="process_button">
-        <button><a href="Javascript:document.getElementById('form-predict').submit()"  style="text-decoration: none;">Process</a> </button>
+        <button id="submit_button"><a href="#"  style="text-decoration: none;">Process</a> </button>
     </section>
     
 
