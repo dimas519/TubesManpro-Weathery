@@ -102,7 +102,7 @@
 
             <form action="weeklyTwo.php" class="date-pick" method="get">
                 <input type="text" hidden name="city" value=" <?php if(isset($_GET['city'])){echo $_GET['city'];}  ?>" id="city-hidden">
-                <input type="date" name="from" id="fromDate" oninput="getDate()" min="2008-01-01" max="2017-12-31">
+                <input type="date" name="from" id="fromDate" oninput="getDate()" >
                 <input type="date" name="to" style="margin-left: 1.2rem;" id="toDate" min="2008-01-01" max="2017-12-31">
                 <button type="submit" class="btn-search">SEARCH</button>
             </form>

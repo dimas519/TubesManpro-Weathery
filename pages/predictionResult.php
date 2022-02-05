@@ -1,42 +1,47 @@
 <?php  
-    if( !isset($_GET['city']) || !isset($_GET['Humidity9am']) || !isset($_GET['Cloud9am']) || !isset($_GET['Pressure9am']) ||
-    !isset($_GET['Evaporation']) || !isset($_GET['WindSpeed9am'])    || !isset($_GET['Temp9am'])){
+    if( !isset($_GET['city']) || !isset($_GET['0']) || !isset($_GET['1']) || !isset($_GET['2']) ||
+    !isset($_GET['3']) || !isset($_GET['4'])    || !isset($_GET['5'])){
     header("prediction:php");
     }
 
-    $kode=strval($_GET['city']);
+    $kota=strval($_GET['city']);
+    $lenidKota=strlen($kota);
+    $kode=strval($lenidKota).$kota;
 
-    $jsonData=new stdClass();
-    $jsonData->kota=$_GET['city'];
+    $arrayData="{";
+    $arrayData.='"kota":'.$_GET['city'];
 
-    if(!($_GET['Humidity9am']==-1)){
-        $kode=$kode."-Humidity9am";
-        $jsonData->Humidity9am=$_GET['Humidity9am'];
+    if(!($_GET['0']==-1)){ //humidity9am 
+        $kode=$kode."0";
+        $arrayData.=',"0":'.$_GET['0'];
     }
-    if(!($_GET['Cloud9am']==-1)){
-        $kode=$kode."-Cloud9am";
-        $jsonData->Cloud9am=$_GET['Cloud9am'];
+    if(!($_GET['1']==-1)){  //cloud9am
+        $kode=$kode."1";
+        $arrayData.=',"1":'.$_GET['1'];
     }
-    if(!($_GET['Pressure9am']==-1)){
-        $kode=$kode."-Pressure9am";
-        $jsonData->Pressure9am=$_GET['Pressure9am'];
+    if(!($_GET['2']==-1)){
+        $kode=$kode."2";
+        $arrayData.=',"2":'.$_GET['2'];
     }
-    if(!($_GET['Evaporation']==-1)){
-        $kode=$kode."-Evaporation";
-        $jsonData->Evaporation=$_GET['Evaporation'];
+    if(!($_GET['3']==-1)){
+        $kode=$kode."3";
+        $arrayData.=',"3":'.$_GET['3'];
     }
-    if(!($_GET['WindSpeed9am']==-1)){
-        $kode=$kode."-WindSpeed9am";
-        $jsonData->WindSpeed9am=$_GET['WindSpeed9am'];
+    if(!($_GET['4']==-1)){
+        $kode=$kode."4";
+        $arrayData.=',"4":'.$_GET['4'];
     }
-    if(!($_GET['Temp9am']==-1)){
-        $kode=$kode."-Temp9am";
-        $jsonData->Temp9am=$_GET['Temp9am'];
+    if(!($_GET['5']==-1)){
+        $kode=$kode."5";
+        $arrayData.=',"5":'.$_GET['5'];
     }
 
-    $myJSON =base64_encode(json_encode($jsonData));
-    
-    $prediksiALL=shell_exec("cd ../PredictionLogic && python prediction.py $myJSON");
+    $arrayData.="}";
+    $encoded=base64_encode($arrayData);
+    $prediksiALL=shell_exec("cd ../PredictionLogic && python prediction.py $encoded");
+
+    $isTodayRain=-1;
+    $isTomorrowRain=-1;
     $isTodayRain=substr($prediksiALL,0);
     $isTomorrowRain=substr($prediksiALL,2);
  
@@ -100,7 +105,7 @@
             <div class="pred"> <?php  
                 if($isTodayRain==0){
                     echo "NOT RAINING";
-                }else{
+                }else  if($isTodayRain==1){
                     echo "RAINING";
                 }
             
@@ -110,7 +115,7 @@
         <div style="width: 30%;">
         <?php    if($isTodayRain==0){ ?>
             <img src="../assets/Logo.png" alt="" style="width: 100%;">
-        <?php  }else{ ?>
+        <?php  }else if($isTodayRain==1){ ?>
             <img src="../assets/Rain.png" alt="" style="width: 100%;">
         <?php  } ?>
         </div>
@@ -129,7 +134,7 @@
             <div class="pred"><?php  
                 if($isTomorrowRain==0){
                     echo "NOT RAINING";
-                }else{
+                }else if($isTomorrowRain==1){
                     echo "RAINING";
                 }
             
@@ -139,7 +144,7 @@
         <div style="width: 30%;">
         <?php    if($isTomorrowRain==0){ ?>
             <img src="../assets/Logo.png" alt="" style="width: 100%;">
-        <?php  }else{ ?>
+        <?php  }else if($isTomorrowRain==1){ ?>
             <img src="../assets/Rain.png" alt="" style="width: 100%;">
         <?php  } ?>
         </div>
@@ -147,3 +152,4 @@
 
 
 </body>
+

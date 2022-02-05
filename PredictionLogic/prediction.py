@@ -14,25 +14,26 @@ import base64
 
 jsonData=json.loads(base64.b64decode(sys.argv[1]))
 
-kota=jsonData.pop("kota");
+kota=str(jsonData.pop("kota"));
+lenKota=len(kota)
 newDataFrame={}
-nameFile=str(kota);
+nameFile=str(lenKota)+kota;
 
 allKeys=jsonData.keys()
 for key in allKeys:
     newDataFrame[key]=[int(jsonData[key])]
-    nameFile=nameFile+str("-")
     nameFile=nameFile+str(key)
 
 nameFile=nameFile+str(".pkl")
 
 dfbaru=pd.DataFrame(newDataFrame)
+
 modelToday= pickle.load(open("modelTrain/Today/"+nameFile, 'rb'))
 hasilPrediksiToday=modelToday.predict(dfbaru)
 
 modelTomorrow= pickle.load(open("modelTrain/Tomorrow/"+nameFile, 'rb'))
 hasilPrediksiTomorrow=modelTomorrow.predict(dfbaru)
 
-print(str(hasilPrediksiToday[0])+"*"+str(hasilPrediksiTomorrow[0]))
+print(str(hasilPrediksiToday[0])+"-"+str(hasilPrediksiTomorrow[0]))
 
 
