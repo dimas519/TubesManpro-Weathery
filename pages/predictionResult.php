@@ -39,7 +39,7 @@
     $arrayData.="}";
     $encoded=base64_encode($arrayData);
     #!/usr/bin/env python
-    $prediksiALL=shell_exec( "cd ../PredictionLogic && python prediction.py $encoded");
+    $prediksiALL=shell_exec( "python ..\PredictionLogic\prediction.py $encoded");
     
     $isTodayRain=-1;
     $isTomorrowRain=-1;
