@@ -38,8 +38,9 @@
 
     $arrayData.="}";
     $encoded=base64_encode($arrayData);
-    $prediksiALL=shell_exec("cd ../PredictionLogic && python prediction.py $encoded");
-
+    #!/usr/bin/env python
+    $prediksiALL=shell_exec( "cd ../PredictionLogic && python prediction.py $encoded");
+    
     $isTodayRain=-1;
     $isTomorrowRain=-1;
     $isTodayRain=substr($prediksiALL,0);
@@ -142,11 +143,16 @@
             ?></div>
         </div>
         <div style="width: 30%;">
-        <?php    if($isTomorrowRain==0){ ?>
+        <?php 
+        echo $prediksiALL;
+         if($isTomorrowRain==0){ ?>
             <img src="../assets/Logo.png" alt="" style="width: 100%;">
         <?php  }else if($isTomorrowRain==1){ ?>
             <img src="../assets/Rain.png" alt="" style="width: 100%;">
-        <?php  } ?>
+            
+        <?php  } 
+    
+        echo $prediksiALL;?>
         </div>
     </div>
 
