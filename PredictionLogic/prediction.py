@@ -25,13 +25,14 @@ for key in allKeys:
     nameFile=nameFile+str(key)
 
 nameFile=nameFile+str(".pkl")
+nameFile=str(nameFile)
 
 dfbaru=pd.DataFrame(newDataFrame)
 
-modelToday= pickle.load(open("modelTrain/Today/"+nameFile, 'rb'))
+modelToday= pickle.load(open("../PredictionLogic/modelTrain/Today/"+nameFile, 'rb'))
 hasilPrediksiToday=modelToday.predict(dfbaru)
 
-modelTomorrow= pickle.load(open("modelTrain/Tomorrow/"+nameFile, 'rb'))
+modelTomorrow= pickle.load(open("../PredictionLogic/modelTrain/Tomorrow/"+nameFile, 'rb'))
 hasilPrediksiTomorrow=modelTomorrow.predict(dfbaru)
 
 print(str(hasilPrediksiToday[0])+"-"+str(hasilPrediksiTomorrow[0]))
